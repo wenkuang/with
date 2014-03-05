@@ -10,7 +10,7 @@
  *              
  */
 define("ROOT", dirname(__FILE__));
-require "./Etc/boot.php";
+require "./etc/boot.php";
 ?>
 
 

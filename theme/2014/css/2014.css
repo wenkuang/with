@@ -1,0 +1,104 @@
+@font-face {
+    font-family: 'Artifika';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Artifika Medium'), local('Artifika-Medium'), url(../fonts/Artifika.woff) format('woff');
+}
+body{margin:0;padding:0;font-family:"Artifika","Microsoft Yahei";background:url(../img/bg.png);}
+ul{list-style-type: none;}
+a{text-decoration: none;}
+.header{ z-index:1;  position:fixed;top:0;left:0;background-color:white;font-size:30px;color:black;width:12%;height:100%;border-bottom:1px solid #ccc;border-right: 1px solid rgb(174, 185, 229);}
+.header .logo{padding: 7px 0;margin:0;width:100%;text-align:center;background-color: rgb(101, 142, 177);color:white;}
+.logo a{color:white;cursor: pointer;}
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 100%;
+    font-weight: 700;
+    line-height: 1;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: rgb(101, 142, 177);
+    border-radius: 5px;
+}
+.wrap{margin-top:10px;margin-left:10%;}
+.bg{
+    background-color:#ccc;
+    -webkit-filter: blur(10px);   
+    filter: blur(10px);
+    width:100%;
+    height:100%;
+    z-index:1;
+    opacity: .8;
+}
+
+/* module:  block list */
+.blocklist{width:100%;box-shadow: 1px 1px 70px 10px rgb(238, 229, 229);z-index:99;}
+.blocklist li:first-child{
+    width: 82%;
+    padding: 14px;
+    height:150px;
+}
+.blocklist li{
+    width:25%;
+    float:left;
+    margin:10px;
+    border:1px solid #ccc;
+    padding:13px;
+    background-color:white;
+    height:200px;
+    overflow:hidden;
+    border: 1px solid rgb(174, 185, 229);
+    box-shadow: 1px 1px 50px 1px rgba(231, 217, 217, 0.64);
+    border-radius: 5px;
+}
+.blocklist p{
+    line-height: 25px;
+    font-size: 15px;
+    text-indent: 25px;
+    
+}
+
+/*module:: item */
+.item li{
+    background-color:white;
+    border: 1px solid rgb(174, 185, 229);
+    margin:10px;
+    box-shadow: 1px 1px 50px 1px rgba(231, 217, 217, 0.64);
+    padding:13px;
+    width:70%;
+}
+
+/*module :: post */
+.post li{
+    background-color:white;
+    border: 1px solid rgb(174, 185, 229);
+    margin:10px;
+    box-shadow: 1px 1px 50px 1px rgba(231, 217, 217, 0.64);
+    padding:13px;
+    width:70%;
+}
+/*module:: menu*/
+.menu{font-size:15px;margin:0;padding:0;padding-top:10px;}
+.menu p{display: none;}
+.menu a{font-size: 17px;font-family:"Artifika","Microsoft Yahei";box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);text-decoration:none;display: block;padding: 15px 30px;color: rgb(0, 0, 0);}
+.menu a span{padding-right:4px;}
+.menu a:hover{
+    background-color:rgb(101, 142, 177);
+    color:white;
+}
+.menu a{position:relative;}
+.menu a p{
+    position: absolute;
+    left: 100%;
+    top: -17px;
+    width: 450px;
+    background-color: rgb(101, 142, 177);
+    padding: 20px;
+    text-indent: 30px;
+    font-size: 17px;
+    line-height:27px;
+}
+.menu a:hover p{display: block;}
