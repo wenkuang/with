@@ -29,7 +29,8 @@ $allowed_params = array(
     "home", #首页
     "post", #文章处理
     "topic", #图书处理
-    "category"   #分类
+    "category",   #分类
+    "chapter",
 );
 $act = empty($_GET['act'])?"home":$_GET['act'];
 if(in_array($act,$allowed_params) && is_string($act)){

@@ -6,11 +6,13 @@ class headerRoute{
     public $data;
 
     public function __construct() {
+        $url = new urlExt();
         $this->data = array(
             "class_name" => get_class(),
             "domain" => DOMAIN,
             "site_name" => SITE_NAME,
-            "site_url"=>SITE_URL
+            "site_url"=>SITE_URL,
+            "seo"=>$url->get_param("name")
         );
         //记录访问日志
     }

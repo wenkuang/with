@@ -1,6 +1,6 @@
 <?php
 
-class post{
+class h_menu{
     
     private $data ;
     public function get($data){
@@ -9,21 +9,17 @@ class post{
     }
     
     private function struct(){
-        return  "<ul class='post'>" .$this->eachlist() . "</ul>";
+        return  "<ul class='h_menu'>" .$this->eachlist() . "</ul>";
     }
     
     private function eachlist(){
         $return = "";
         if(!empty($this->data)){
             foreach($this->data as $k => $v){
-                if(!isset($v->name)){
-                    $v->name = $v->title;
-                }
-                $name=trim($v->name);
-                $content = html_entity_decode($v->content);
-                $return .= "<li><label><a href='/post/{$name}'>{$name}</a></label><p>{$content}</p></li>";
+                $return .= "<li><a href='/category/{$v->name}' ><span></span>{$v->name}</a></li>";
             }
         }
+        
         return $return;
     }
 }

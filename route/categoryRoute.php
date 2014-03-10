@@ -10,10 +10,13 @@ class categoryRoute extends headerRoute{
         $book = new bookModel();
         $category_info = $category->where("name like '%$category_name%'")->select()->result['data'][0];
         $category_id = $category_info->id;
+        $child_cat = $category->where("parent_id=$category_id")->select()->result['data'];
         $book_list = $book->where("category_id = $category_id")->select()->result['data'];
-        $menu = $category->where("1=1")->select()->limit(10)->result['data'];
+        if(empty($child_cat)){
+            $child_cat = $category->where("parent_id={$category_info->parent_id}")->select()->result['data'];
+        }
         $this->data['category'] = module::blocklist($book_list);
-        $this->data['menu'] = module::menu($menu);
+        $this->data['menu'] = module::h_menu($child_cat);
         $this->show("category");
     }
 }

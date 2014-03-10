@@ -1,6 +1,6 @@
 <?php
 
-class post{
+class chapter{
     
     private $data ;
     public function get($data){
@@ -9,7 +9,7 @@ class post{
     }
     
     private function struct(){
-        return  "<ul class='post'>" .$this->eachlist() . "</ul>";
+        return  "<ul class='home'>" .$this->eachlist() . "</ul>";
     }
     
     private function eachlist(){
@@ -20,8 +20,12 @@ class post{
                     $v->name = $v->title;
                 }
                 $name=trim($v->name);
+                $path = "chapter";
+                if(!empty($v->is_article)){
+                    $path= "post";
+                }
                 $content = html_entity_decode($v->content);
-                $return .= "<li><label><a href='/post/{$name}'>{$name}</a></label><p>{$content}</p></li>";
+                $return .= "<li><label><a href='/{$path}/{$name}'><span class='label'>{$name}</span></a></label><p>{$v->description}</p></li>";
             }
         }
         return $return;
