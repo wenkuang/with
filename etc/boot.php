@@ -31,6 +31,7 @@ $allowed_params = array(
     "topic", #图书处理
     "category",   #分类
     "chapter",
+    "login"
 );
 $act = empty($_GET['act'])?"home":$_GET['act'];
 if(in_array($act,$allowed_params) && is_string($act)){

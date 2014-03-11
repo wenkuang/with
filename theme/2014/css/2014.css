@@ -4,7 +4,7 @@
     font-weight: 400;
     src: local('Artifika Medium'), local('Artifika-Medium'), url(../fonts/Artifika.woff) format('woff');
 }
-body{margin:0;padding:0;font-family:"Artifika","Microsoft Yahei";-background:url(../img/bg.png);background-color: rgb(246, 246, 246) !important;}
+body{margin:0;padding:0;font-family:"Artifika","Microsoft Yahei";-background:url(../img/bg.png);background-color: rgb(246, 246, 246) !important;background-image: linear-gradient(to bottom, rgb(213, 247, 255), rgb(223, 241, 223));}
 ul{list-style-type: none;}
 a{text-decoration: none;}
 .header{ 
@@ -50,21 +50,38 @@ a{text-decoration: none;}
      width: 98%;
 }
 .home{
-    width:65%;
+    width:77%;
     padding: 0;margin:0;
 }
 .home a,.post label a{color:black;font-size:23px;font-family:"Artifika","Microsoft Yahei";display: block;
--background-color: rgb(101, 142, 177);
-padding: 15px;font-weight: bold;
-
-border-bottom: 1px solid rgb(204, 204, 204);}
-.home p{color:rgb(85, 85, 85);font-size:16px;padding:15px;line-height: 26px;
+                      padding: 76px;
+                      background: url(http://a.36krcnd.com/photo/2014/ff3ae3951fe12f65e8102938ca421847.jpg);
+background-color: rgb(226, 242, 255);
+font-weight: bold;
+position:relative;
+border-bottom: 1px solid rgb(204, 204, 204);
+color: white;
+}
+.home a p,.post label a p{
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    padding:0;
+    background-color: black;
+    opacity: .1;
+    z-index: 10;
+}
+.home p{color:rgb(85, 85, 85);font-size:16px;padding:15px;line-height: 26px;background-color: rgb(253, 250, 250);margin: 0;
 text-indent: 30px;}
 .home li:first-child a{font-size:22px;font-weight:bold;}
 .home li:first-child p{display: block;}
-.home li{position:relative;font-size:15px;color:rgb(68, 68, 68);background-color:white;margin-bottom: 50px;
+.home li{position:relative;font-size:15px;color:rgb(68, 68, 68);background-color:white;margin-bottom: 0;
 border-bottom: 1px solid rgb(221, 221, 221);
-box-shadow: 1px 11px 54px 1px rgb(238, 238, 238) ;}
+box-shadow: 1px 11px 54px 1px rgb(238, 238, 238) ;
+box-shadow: 1px -1px 16px 3px rgba(213, 221, 219, 0.51);
+}
 
 .content table{border:1px solid #ccc;font-family: Tahoma,'Microsoft Yahei','Simsun';font-size: 14px;width:50%;margin-left:5%;border-collapse: collapse;}
 .content td{padding:15px;border-bottom: 1px solid rgb(194, 213, 227);}
