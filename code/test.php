@@ -8,6 +8,33 @@ require_once "$basedir/common/common.func.php";
 require_once "$basedir/oufei/cron/oufei_config.php";
 require_once "$basedir/oufei/cron/oufei_huiyuan.php";
 
+while (true) {
+    //获取订单
+    $orders = get_orders();
+    //漏单检查
+    
+    //充值 确认
+    
+    //充值： 成功，返回
+    
+    //第三方失败 回滚
+    
+    //log
+    
+    //释放内存
+    unset($orders);
+    sleep(5);
+}
+
+$oufei_error= array(
+    0000 => "操作成功",
+    1001 => "参数为空",
+    1002 => "签名错误",
+    1003 => "模板配置异常",
+    7777 => "请求频繁",
+    9998 => "数据库异常",
+    9999 => "系统异常"
+);
 
 //获取所有的订单
 function get_orders(){
