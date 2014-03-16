@@ -53,6 +53,22 @@ function confirm_recharge($orderid,$id){
     return get_api($url);
 }
 
+//充值
+function set_orders($order_id,$id,$orderstate){
+    $sign = strtoupper(md5(oufei_config::$partner_id  . $id . $order_id . oufei_config::$oufei_public_key));
+    $data = array(
+        "id" => $id, //来自之前的API返回结果
+        "orderid" => $order_id,
+        "sign" => $sign, //partner+id+orderId+apikey
+        "partner" => oufei_config::$partner_id,
+        "tplid" => oufei_config::$tplid,
+        "orderstate" => $orderstate,
+        "format" => "json"
+    );
+    $url = oufei_config::$api_setorders . "?" . http_build_query($data);
+    return get_api($url);
+}
+
 //获取API
 function get_api($url){
     $ch = curl_init();
