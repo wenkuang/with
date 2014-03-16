@@ -41,7 +41,17 @@ function check_orders($reqid,$orderids){
     return get_api($url);
 }
 
-//
+//订单充值前确认接口
+function confirm_recharge($orderid,$id){
+    $data = array(
+        "id" => $id, //来自之前的API返回结果
+        "orderid" => $orderid,
+        "format" => "json",
+        
+    );
+    $url = oufei_config::$api_confirm . "?" . http_build_query($data);
+    return get_api($url);
+}
 
 //获取API
 function get_api($url){
