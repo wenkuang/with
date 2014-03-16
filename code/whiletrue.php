@@ -1,6 +1,5 @@
 <?php
 
-1111111111
 header("ContentType: text/plain;charset=utf-8");
 $basedir = dirname(dirname(dirname(__FILE__)));
 require_once "$basedir/models/pay.model.php";
