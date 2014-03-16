@@ -94,6 +94,19 @@ function set_orders($order_id,$id,$orderstate){
     return get_api($url);
 }
 
+//获取用户信息
+function get_user_info($user_account){
+    if(empty($user_account)){
+        return array("error"=>-1,"参数为空");
+    }
+    if(is_numeric($user_account)){
+        $url = oufei_config::$sina_api_by_phone . "?source=" . oufei_config::$sina_api_source . "&numbers=" . $user_account;
+    }else{
+        $url = oufei_config::$sina_api_by_email . "?source=" . oufei_config::$sina_api_source . "&emails=" . $user_account;
+    }
+    return get_api($url);
+}
+
 //获取API
 function get_api($url){
     $ch = curl_init();
