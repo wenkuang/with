@@ -35,7 +35,6 @@ function check_orders($reqid,$orderids){
         "reqid" => $reqid,  //来自于第一次请求返回的值
         "orderids" => $orderids,
         "format" => "json",
-        
     );
     $url = oufei_config::$api_check_order . "?" . http_build_query($data);
     return get_api($url);
