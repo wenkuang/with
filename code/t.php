@@ -1,2 +1,2 @@
 <?php
-var_dump(empty("false"));
+var_dump(empty("true"));
