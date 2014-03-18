@@ -1,0 +1,34 @@
+{% extends "GitonomyWebsiteBundle::layout_splash.html.twig" %}
+
+{% trans_default_domain 'login' %}
+
+{% block title 'page.title'|trans({'%app%': config.get('name')}) %}
+
+{% block content %}
+    <form method="POST" action="{{ path('splash_loginCheck') }}" class="form-horizontal">
+        <div class="control-group">
+            <div class="controls">
+                    <h2>{{ 'title.login'|trans }}</h2>
+            </div>
+        </div>
+        {{ form_widget(form) }}
+        <div class="control-group">
+            <div class="controls">
+                <p>
+                    <button type="submit" class="btn btn-primary">{{ 'form.submit'|trans }}</button>
+                    <a class="btn" href="{{ path('splash_register') }}">{{ 'button.register'|trans }}</a>
+                </p>
+                    <a class="link" href="{{ path('splash_forgotPassword') }}">{{ 'link.forgot_password'|trans }}</a>
+                </p>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block javascript_content %}
+    <script type="text/javascript">
+        $(document).ready(function (){
+            $("#_username").focus();
+        });
+    </script>
+{% endblock %}

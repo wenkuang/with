@@ -1,0 +1,23 @@
+{% extends "GitonomyWebsiteBundle::layout_project.html.twig" %}
+
+{% trans_default_domain 'project_history' %}
+
+{% set global_navigation = 'projects' %}
+{% set local_navigation = 'history' %}
+
+{% block title 'page.title'|trans({'%project%': project.name}) %}
+
+{% block project_content %}
+    <div class="actionbar">
+        {% include "GitonomyWebsiteBundle:Project:_branchActivity.html.twig" with {
+            project: project,
+            branch: branch,
+            route: 'project_history',
+            withAll: true
+            } only
+        %}
+    </div>
+
+    {{ include('GitonomyWebsiteBundle:Project:history_ajax.html.twig') }}
+
+{% endblock %}

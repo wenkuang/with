@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <title>{% block title '' %}</title>
+    <head>
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        {% stylesheets filter="cssrewrite" output="css/all.css"
+            "bundles/gitonomywebsite/vendor/bootstrap/css/bootstrap.css"
+            "bundles/gitonomywebsite/vendor/bootstrap/css/bootstrap-responsive.css"
+            "bundles/gitonomywebsite/vendor/highlight.css"
+            "bundles/gitonomywebsite/less/global.less"
+            "bundles/gitonomywebsite/less/layout.less"
+            "bundles/gitonomywebsite/less/splash.less"
+            "bundles/gitonomywebsite/less/fonts.less"
+            "bundles/gitonomywebsite/less/preferences/sshKeys.less"
+            "bundles/gitonomywebsite/less/project/newsfeed.less"
+            "bundles/gitonomygit/css/all.css"
+        %}
+            <link rel="stylesheet" href="{{ asset(asset_url) }}" />
+        {% endstylesheets %}
+        {% block before_head_end '' %}
+    </head>
+    <body class="{% block body_class '' %}">
+        {% block body '' %}
+
+        {% javascripts combine=true output="js/all.js"
+            "bundles/gitonomywebsite/vendor/jquery-1.7.1.min.js"
+            "bundles/gitonomywebsite/vendor/jquery.masonry.min.js"
+            "bundles/gitonomywebsite/vendor/bootstrap/js/bootstrap.js"
+            "bundles/gitonomywebsite/vendor/highlight.pack.js"
+            "bundles/gitonomywebsite/js/post-link.js"
+            "bundles/gitonomywebsite/js/button-groups.js"
+            "bundles/gitonomywebsite/js/source.js"
+            "bundles/gitonomygit/js/log.js"
+            "bundles/gitonomygit/js/commit.js"
+        %}
+            <script type="text/javascript" src="{{ asset(asset_url) }}"></script>
+        {% endjavascripts %}
+        {% block before_body_end '' %}
+    </body>
+</html>

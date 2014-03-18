@@ -1,0 +1,41 @@
+{% extends "GitonomyWebsiteBundle::layout_project.html.twig" %}
+
+{% trans_default_domain 'project_tags' %}
+{% set global_navigation = 'projects' %}
+{% set local_navigation = 'tags' %}
+
+{% block title 'page.title'|trans({'%project%': project.name}) %}
+
+{% block project_content %}
+    <div id="content">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{ 'table.name'|trans }}</th>
+                    <th>{{ 'table.last_commit'|trans }}</th>
+                    <th>{{ 'table.author'|trans }}</th>
+                    <th>{{ 'table.date'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tag in tags %}
+                    <tr>
+                        <td>{{ tag.name }}</td>
+                        <td><a href="{{ path('project_commit', {slug: project.slug, hash: tag.commit.hash}) }}">{{ tag.commit.fixedShortHash }}</a> {{ tag.commit.shortMessage }}</td>
+
+                        <td class="author">
+                            <img class="avatar" src="{{ gravatar(tag.commit.authorEmail, 16) }}" alt="{{ tag.commit.authorName }}" title="{{ tag.commit.authorName }}" />
+                            {{ tag.commit.authorName }}
+                        </td>
+
+                        <td>{{ tag.commit.authorDate.format('Y-m-d H:i:s') }}</td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">{{ 'table.no_row'|trans }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "GitonomyWebsiteBundle::layout_administration.html.twig" %}
+
+{% trans_default_domain 'administration_role' %}
+
+{% block title 'page.title.main'|trans %}
+
+{% set local_navigation = 'roles' %}
+
+{% block administration_content %}
+    <div class="actionbar">
+        <div class="pull-right">
+            <a href="{{ path('administration_createRole') }}" class="menu"><i class="symbol">add</i> {{ 'action.create'|trans }}</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{ 'table.list.column.name'|trans }}</th>
+                <th>{{ 'table.list.column.description'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for role in roles %}
+                <tr>
+                    <td>{{ role.name }}</td>
+                    <td>{{ role.description }}</td>
+                    <td>
+                        <div class="btn-group pull-right">
+                            <a rel="tooltip" data-placement="left" title="{{ 'tooltip.edit'|trans({'%name%': role.name}) }}" class="btn btn-small" href="{{ path('administration_editRole', {id: role.id}) }}"><i class="icon-edit"></i></a>
+                            <a rel="tooltip" data-placement="left" title="{{ 'tooltip.delete'|trans({'%name%': role.name}) }}" class="btn btn-small btn-danger" data-method="POST" data-confirm="{{ 'button.confirm.delete'|trans({'%name%': role.name}) }}" href="{{ path('administration_deleteRole', {id: role.id}) }}"><i class="icon-fire icon-white"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

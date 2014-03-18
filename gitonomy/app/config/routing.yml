@@ -1,0 +1,2 @@
+_gitonomy_website:
+    resource: "@GitonomyWebsiteBundle/Resources/config/routing.yml"

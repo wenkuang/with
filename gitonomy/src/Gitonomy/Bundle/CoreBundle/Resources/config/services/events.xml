@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="gitonomy_core.event_dispatcher.class">Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher</parameter>
+        <parameter key="gitonomy_core.listener.feed.class">Gitonomy\Bundle\CoreBundle\Listener\FeedListener</parameter>
+        <parameter key="gitonomy_core.listener.config.class">Gitonomy\Bundle\CoreBundle\Listener\ConfigListener</parameter>
+        <parameter key="gitonomy_core.listener.project_permissions.class">Gitonomy\Bundle\CoreBundle\Listener\ProjectPermissionsListener</parameter>
+    </parameters>
+    <services>
+
+        <service id="gitonomy_core.event_dispatcher" class="%gitonomy_core.event_dispatcher.class%">
+            <argument type="service" id="service_container" />
+        </service>
+
+        <service id="gitonomy_core.listener.feed" class="%gitonomy_core.listener.feed.class%">
+            <argument type="service" id="doctrine" />
+            <argument type="service" id="gitonomy_core.git.repository_pool" />
+            <tag name="gitonomy.event_subscriber" />
+        </service>
+
+        <service id="gitonomy_core.listener.config" class="%gitonomy_core.listener.config.class%">
+            <argument type="service" id="service_container" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <service id="gitonomy_core.listener.project_permissions" class="%gitonomy_core.listener.project_permissions.class%">
+            <argument type="service" id="doctrine" />
+            <tag name="gitonomy.event_subscriber" />
+        </service>
+    </services>
+</container>

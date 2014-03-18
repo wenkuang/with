@@ -1,0 +1,34 @@
+page.title.main: Administration des rôles
+page.title.create: Nouveau rôle
+page.title.edit: Edition du rôle %name%
+
+action.create: Nouveau rôle
+
+title.create: Créer un nouveau rôle
+
+button.save: Enregister
+button.cancel: Annuler
+button.confirm.delete: Oui, je veux supprimer %name%
+
+form.name: Nom
+form.slug: Jeton
+form.description: Description
+form.permissions: Permissions
+
+form.legend.create: Créer un nouveau rôle
+form.legend.edit: Edition du rôle %name%
+
+table.list.column.name: Nom
+table.list.column.description: Description
+
+tooltip.edit: Editer le rôle %name%
+tooltip.delete: Supprimer le rôle %name%
+
+notice.created: Rôle créé
+notice.updated: Rôle mis à jour
+notice.deleted: Rôle supprimé
+
+ROLE_ADMIN: Administration
+ROLE_PROJECT_CREATE: Créer des projets
+PROJECT_READ: Lire le dépôt
+PROJECT_ADMIN: Administrer le dépôt

@@ -1,0 +1,13 @@
+parameters:
+  # Database
+  database_driver:   pdo_mysql
+  database_host:     localhost
+  database_port:     ~
+  database_name:     gitonomy
+  database_user:     root
+  database_password: ~
+
+  # Security
+  secret:            ThisTokenIsNotSoSecretChangeIt
+  remember_secret:   ThisTokenIsNotSoSecretChangeIt
+  repository_path:   %kernel.root_dir%/repositories

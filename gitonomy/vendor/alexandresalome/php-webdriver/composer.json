@@ -1,0 +1,24 @@
+{
+    "name": "alexandresalome/php-webdriver",
+    "description": "PHP-WebDriver is a client for WebDriver and a Behat extension",
+
+    "license": "MIT",
+
+    "authors": [
+        { "name": "Alexandre Salomé", "email": "alexandre.salome@gmail.com", "homepage": "http://alexandre-salome.fr" }
+    ],
+
+    "autoload": {
+        "psr-0": { "WebDriver": ["src/", "tests/"] }
+    },
+
+    "require": {
+        "php": ">=5.4",
+        "kriswallsmith/buzz": "~0.7",
+        "symfony/process": "~2.1"
+    },
+
+    "require-dev": {
+        "behat/behat": "~2.4"
+    }
+}

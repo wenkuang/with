@@ -1,0 +1,30 @@
+{% extends "GitonomyWebsiteBundle::layout_project.html.twig" %}
+
+{% trans_default_domain "project_admin" %}
+
+{% block title 'page.title'|trans({'%project%': project.name}) %}
+
+{% set global_navigation = 'projects' %}
+{% set local_navigation = 'admin' %}
+
+{% block project_content %}
+    <div id="content">
+        <form method="POST" action="{{ path('project_admin', {slug: project.slug}) }}" class="form-horizontal">
+            <legend>{{ 'form.information.legend'|trans }}</legend>
+            {{ form_rest(form) }}
+            <div class="control-group">
+                <div class="controls">
+                    <button class="btn btn-success" type="submit"><i class="symbol">save</i> {{ 'form.information.submit'|trans }}</button>
+                </div>
+            </div>
+        </form>
+
+        <legend>{{ 'form.delete.legend'|trans }}</legend>
+        <div class="control-group">
+            <div class="controls">
+                <a id="delete" class="btn btn-danger" data-method="POST" data-confirm="{{ 'button.confirm.delete'|trans({'%project%': project.name}) }}" href="{{ path('project_delete', {slug: project.slug, _token: csrf_token('project_delete')}) }}"><i class="icon-fire icon-white"></i> {{ 'button.delete'|trans({'%project%': project.name}) }}</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

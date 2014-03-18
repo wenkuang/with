@@ -1,0 +1,22 @@
+{% extends "GitonomyWebsiteBundle::layout_administration.html.twig" %}
+
+{% trans_default_domain 'administration_user' %}
+
+{% block title 'page.title.create'|trans %}
+
+{% set local_navigation = 'users' %}
+
+{% block administration_content %}
+    <div id="content">
+        <form method="POST" action"{{ path('administration_createUser') }}" class="form-horizontal">
+            <legend>{{ 'form.legend.create'|trans }}</legend>
+            {{ form_rest(form) }}
+            <div class="control-group">
+                <div class="controls">
+                    <button class="btn btn-success" type="submit"><i class="symbol">plus</i> {{ 'button.create'|trans }}</button>
+                    <a class="btn" href="{{ path('administration_users') }}">{{ 'button.cancel'|trans }}</a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

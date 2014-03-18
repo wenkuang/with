@@ -1,0 +1,14 @@
+{% extends "GitonomyWebsiteBundle::layout_project.html.twig" %}
+
+{% trans_default_domain 'project_history' %}
+
+{% block title 'page.commit.title'|trans({'%hash%': commit.hash}) %}
+
+{% set global_navigation = 'projects' %}
+{% set local_navigation = 'history' %}
+
+{% block project_content %}
+    {{ git_commit(commit) }}
+    {{ git_diff(commit.diff) }}
+
+{% endblock %}

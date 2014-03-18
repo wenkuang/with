@@ -1,0 +1,51 @@
+administration_users:
+    pattern: /admin/users
+    defaults: { _controller: "GitonomyWebsiteBundle:Administration:users" }
+
+administration_createUser:
+    pattern: /admin/users/create
+    defaults: { _controller: "GitonomyWebsiteBundle:Administration:createUser" }
+
+administration_editUser:
+    pattern: /admin/users/{username}/edit
+    defaults: { _controller: "GitonomyWebsiteBundle:Administration:editUser" }
+
+administration_emailCreate:
+    pattern: /admin/users/{username}/new-email
+    defaults: { _controller: "GitonomyWebsiteBundle:Administration:emailCreate" }
+
+administration_emailAction:
+    pattern: /admin/users/email/{id}/{action}
+    defaults: { _controller: "GitonomyWebsiteBundle:Administration:emailAction" }
+
+administration_deleteUser:
+    pattern: /admin/users/{username}/delete
+    defaults: { _controller: "GitonomyWebsiteBundle:Administration:deleteUser" }
+    requirements:
+        method: POST
+
+administration_roles:
+    pattern: /admin/roles
+    defaults: { _controller: "GitonomyWebsiteBundle:Administration:roles" }
+
+administration_createRole:
+    pattern: /admin/roles/create
+    defaults: { _controller: "GitonomyWebsiteBundle:Administration:createRole" }
+
+administration_editRole:
+    pattern: /admin/roles/{id}/edit
+    defaults: { _controller: "GitonomyWebsiteBundle:Administration:editRole" }
+
+administration_deleteRole:
+    pattern: /admin/roles/{id}/delete
+    defaults: { _controller: "GitonomyWebsiteBundle:Administration:deleteRole" }
+    requirements:
+        method: POST
+
+administration_config:
+    pattern: /admin/config
+    defaults: { _controller: "GitonomyWebsiteBundle:Administration:config" }
+
+administration_version:
+    pattern: /admin/version
+    defaults: { _controller: "GitonomyWebsiteBundle:Administration:version" }

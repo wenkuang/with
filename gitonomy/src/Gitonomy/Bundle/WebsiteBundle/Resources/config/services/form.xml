@@ -1,0 +1,101 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <!-- General -->
+        <parameter key="gitonomy_website.form.type.gitonomy_locale.class">Gitonomy\Bundle\WebsiteBundle\Form\LocaleType</parameter>
+
+        <!-- Splash -->
+        <parameter key="gitonomy_website.form.type.splash_register.class">Gitonomy\Bundle\WebsiteBundle\Form\Splash\RegisterType</parameter>
+        <parameter key="gitonomy_website.form.type.splash_login.class">Gitonomy\Bundle\WebsiteBundle\Form\Splash\LoginType</parameter>
+        <parameter key="gitonomy_website.form.type.change_password.class">Gitonomy\Bundle\WebsiteBundle\Form\Splash\ChangePasswordType</parameter>
+
+        <!-- Project -->
+        <parameter key="gitonomy_website.form.type.project.class">Gitonomy\Bundle\WebsiteBundle\Form\Project\ProjectType</parameter>
+        <parameter key="gitonomy_website.form.type.project_role.class">Gitonomy\Bundle\WebsiteBundle\Form\Project\RoleType</parameter>
+        <parameter key="gitonomy_website.form.type.project_git_access.class">Gitonomy\Bundle\WebsiteBundle\Form\Project\GitAccessType</parameter>
+
+        <!-- Profile -->
+        <parameter key="gitonomy_website.form.type.profile_information.class">Gitonomy\Bundle\WebsiteBundle\Form\Profile\InformationType</parameter>
+        <parameter key="gitonomy_website.form.type.profile_email.class">Gitonomy\Bundle\WebsiteBundle\Form\Profile\EmailType</parameter>
+        <parameter key="gitonomy_website.form.type.profile_ssh_key.class">Gitonomy\Bundle\WebsiteBundle\Form\Profile\SshKeyType</parameter>
+        <parameter key="gitonomy_website.form.type.profile_password.class">Gitonomy\Bundle\WebsiteBundle\Form\Profile\ProfilePasswordType</parameter>
+        <parameter key="gitonomy_website.form.type.user_password.class">Gitonomy\Bundle\WebsiteBundle\Form\User\UserPasswordType</parameter>
+
+        <!-- Administration -->
+        <parameter key="gitonomy_website.form.type.administration_config.class">Gitonomy\Bundle\WebsiteBundle\Form\Administration\ConfigType</parameter>
+        <parameter key="gitonomy_website.form.type.administration_user.class">Gitonomy\Bundle\WebsiteBundle\Form\Administration\UserType</parameter>
+        <parameter key="gitonomy_website.form.type.administration_role.class">Gitonomy\Bundle\WebsiteBundle\Form\Administration\RoleType</parameter>
+    </parameters>
+
+    <services>
+
+        <!-- General -->
+        <service id="gitonomy_website.form.type.gitonomy_locale" class="%gitonomy_website.form.type.gitonomy_locale.class%">
+            <tag name="form.type" alias="gitonomy_locale" />
+        </service>
+
+        <!-- Splash -->
+        <service id="gitonomy_website.form.type.splash_register" class="%gitonomy_website.form.type.splash_register.class%">
+            <argument type="service" id="security.encoder_factory" />
+            <tag name="form.type" alias="register" />
+        </service>
+        <service id="gitonomy_website.form.type.splash_login" class="%gitonomy_website.form.type.splash_login.class%">
+            <tag name="form.type" alias="login" />
+        </service>
+        <service id="gitonomy_website.form.type.change_password" class="%gitonomy_website.form.type.change_password.class%">
+            <argument type="service" id="security.encoder_factory" />
+            <tag name="form.type" alias="change_password" />
+        </service>
+
+        <!-- Project -->
+        <service id="gitonomy_website.form.type.project" class="%gitonomy_website.form.type.project.class%">
+            <argument type="service" id="security.encoder_factory" />
+            <tag name="form.type" alias="project" />
+        </service>
+
+        <service id="gitonomy_website.form.type.project_role" class="%gitonomy_website.form.type.project_role.class%">
+            <argument type="service" id="security.encoder_factory" />
+            <tag name="form.type" alias="project_role" />
+        </service>
+
+        <service id="gitonomy_website.form.type.project_git_access" class="%gitonomy_website.form.type.project_git_access.class%">
+            <argument type="service" id="security.encoder_factory" />
+            <tag name="form.type" alias="project_git_access" />
+        </service>
+
+        <!-- Profile -->
+        <service id="gitonomy_website.form.type.profile_information" class="%gitonomy_website.form.type.profile_information.class%">
+            <tag name="form.type" alias="profile_information" />
+        </service>
+        <service id="gitonomy_website.form.type.profile_email" class="%gitonomy_website.form.type.profile_email.class%">
+            <tag name="form.type" alias="profile_email" />
+        </service>
+        <service id="gitonomy_website.form.type.profile_ssh_key" class="%gitonomy_website.form.type.profile_ssh_key.class%">
+            <tag name="form.type" alias="profile_ssh_key" />
+        </service>
+        <service id="gitonomy_website.form.type.profile_password" class="%gitonomy_website.form.type.profile_password.class%">
+            <argument type="service" id="security.encoder_factory" />
+            <tag name="form.type" alias="profile_password" />
+        </service>
+        <service id="gitonomy_website.form.type.user_password" class="%gitonomy_website.form.type.user_password.class%">
+            <argument type="service" id="security.encoder_factory" />
+            <tag name="form.type" alias="user_password" />
+        </service>
+
+        <!-- Administration -->
+        <service id="gitonomy_website.form.type.administration_config" class="%gitonomy_website.form.type.administration_config.class%">
+            <tag name="form.type" alias="administration_config" />
+        </service>
+        <service id="gitonomy_website.form.type.administration_user" class="%gitonomy_website.form.type.administration_user.class%">
+            <tag name="form.type" alias="administration_user" />
+        </service>
+        <service id="gitonomy_website.form.type.administration_role" class="%gitonomy_website.form.type.administration_role.class%">
+            <tag name="form.type" alias="administration_role" />
+        </service>
+    </services>
+
+</container>

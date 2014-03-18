@@ -1,0 +1,21 @@
+{% extends "GitonomyWebsiteBundle::layout_project.html.twig" %}
+
+{% trans_default_domain 'project_history' %}
+
+{% block title 'page.compare.title'|trans({'%revision%': revision}) %}
+
+{% set global_navigation = 'projects' %}
+{% set local_navigation = 'history' %}
+
+{% block project_content %}
+    <div class="actionbar">
+        <ul class="pathcrumb">
+            <li>{{ revision }}</li>
+        </ul>
+    </div>
+
+    <legend>{{ 'title.diff.commits'|trans }}</legend>
+
+    {{ git_log(log) }}
+    {{ git_diff(diff) }}
+{% endblock %}

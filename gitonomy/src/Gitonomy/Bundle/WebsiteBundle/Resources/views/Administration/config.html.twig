@@ -1,0 +1,54 @@
+{% extends "GitonomyWebsiteBundle::layout_administration.html.twig" %}
+
+{% trans_default_domain 'administration_config' %}
+
+{% block title 'page.title.main'|trans({'%app%': config.get('name')}) %}
+
+{% set local_navigation = 'config' %}
+
+{% block administration_content %}
+    <div id="content">
+        <form method="POST" action="{{ path('administration_config') }}" class="form-horizontal">
+            {{ form_errors(form) }}
+            <legend>{{ 'title.project'|trans }}</legend>
+            {{ form_errors(form.project) }}
+            {{ form_widget(form.project) }}
+            <legend>{{ 'title.mailer'|trans }}</legend>
+            {{ form_errors(form.mailer) }}
+            {{ form_widget(form.mailer) }}
+            <p><input type="submit" value="{{ 'form.submit'|trans }}" class="btn btn-success" /></p>
+            {{ form_rest(form) }}
+        </form>
+    </div>
+{% endblock %}
+
+{% block javascript_content %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var fields = ['host', 'port', 'username', 'password', 'auth_mode', 'encryption', 'from_name', 'from_email'];
+            var displayedFields = {
+                'null': [],
+                'smtp': ['host', 'port', 'username', 'password', 'auth_mode', 'encryption', 'from_name', 'from_email'],
+                'gmail': ['username', 'password', 'from_name', 'from_email'],
+                'mail': ['from_name', 'from_email']
+            };
+
+            $("#administration_config_mailer_mailer_transport").change(function() {
+                var $this = $(this), val = $this.val(), i;
+
+                // hide all
+                for (i = 0; i < fields.length; i++) {
+                    $("#administration_config_mailer_mailer_" + fields[i] + "_field").hide();
+                }
+
+                if (displayedFields[val] !== undefined) {
+                    // hide all
+                    for (i = 0; i < displayedFields[val].length; i++) {
+                        $("#administration_config_mailer_mailer_" + displayedFields[val][i] + "_field").show();
+                    }
+                }
+            });
+            $("#administration_config_mailer_mailer_transport").change();
+        });
+    </script>
+{% endblock %}

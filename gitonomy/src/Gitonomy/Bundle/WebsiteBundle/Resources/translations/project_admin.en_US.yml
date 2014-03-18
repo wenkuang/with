@@ -1,0 +1,12 @@
+page.title: "%project% - Administration"
+form.information.legend: "Information"
+form.information.name: "Name of project"
+form.information.slug: "Slug of project"
+form.information.defaultBranch: "Default branch"
+form.information.submit: "Save information"
+notice.information_saved: "Project information saved"
+error.token_invalid: "Your token was invalid. Try again, please"
+form.delete.legend: "Delete"
+button.delete: "Delete %project%"
+button.confirm.delete: Yes, I want to delete %project%
+notice.deleted: "Project removed"

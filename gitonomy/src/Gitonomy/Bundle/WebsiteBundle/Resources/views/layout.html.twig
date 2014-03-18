@@ -1,0 +1,73 @@
+{% extends "GitonomyWebsiteBundle::base.html.twig" %}
+
+{% trans_default_domain 'menu' %}
+
+{% block body %}
+    {% include "GitonomyWebsiteBundle::flash.html.twig" %}
+    {% block content '' %}
+    <div id="global-menu-container">
+        {% spaceless %}
+        <ul id="global-menu">
+            {% if app.user %}
+                <li>
+                    <a href="#" onClick="$('#global-menu').toggleClass('active'); return false;">
+                        <div class="icon"><img src="{{ gravatar(app.user.defaultEmail.email, 50) }}" /></div>
+                        <div class="text">{{ app.user.fullname }}</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('project_list') }}"{% if global_navigation|default(null) == "projects" %} class="active"{% endif %}>
+                        <div class="icon"><i class="symbol">list</i></div>
+                        <div class="text">{{ 'menu.project_list'|trans }}</div>
+                    </a>
+                </li>
+                {% if is_granted('ROLE_PROJECT_CREATE') %}
+                    <li>
+                        <a href="{{ path('project_create') }}"{% if global_navigation|default(null) == "new_project" %} class="active"{% endif %}>
+                            <div class="icon"><i class="symbol">add</i></div>
+                            <div class="text">{{ 'menu.project_create'|trans }}</div>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li>
+                        <a href="{{ path('administration_users') }}"{% if global_navigation|default(null) == "administration" %} class="active"{% endif %}>
+                            <div class="icon"><i class="symbol">setting</i></div>
+                            <div class="text">{{ 'menu.administration'|trans }}</div>
+                        </a>
+                    </li>
+                {% endif %}
+                <li>
+                    <a href="{{ path('profile_information') }}"{% if global_navigation|default(null) == "profile" %} class="active"{% endif %}>
+                        <div class="icon"><i class="symbol">you</i></div>
+                        <div class="text">{{ 'menu.profile'|trans }}</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('splash_logout') }}">
+                        <div class="icon"><i class="symbol">off</i></div>
+                        <div class="text">{{ 'menu.logout'|trans }}</div>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="#" onClick="$('#global-menu').toggleClass('active'); return false;">
+                        <div class="icon"><img src="{{ gravatar('contact@gitonomy.com', 50) }}" /></div>
+                        <div class="text">{{ config.get('name') }}</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('splash_login') }}">
+                        <div class="icon"><i class="symbol">login</i></div>
+                        <div class="text">{{ 'menu.login'|trans }}</div>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+        {% endspaceless %}
+    </div>
+{% endblock %}
+
+{% block before_body_end %}
+    {% block javascript_content '' %}
+{% endblock %}

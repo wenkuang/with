@@ -1,0 +1,46 @@
+profile_information:
+    pattern: /profile
+    defaults: { _controller: "GitonomyWebsiteBundle:Profile:information" }
+    requirements: { _method: GET }
+
+profile_saveInformation:
+    pattern: /profile
+    defaults: { _controller: "GitonomyWebsiteBundle:Profile:saveInformation" }
+    requirements: { _method: POST }
+
+profile_createEmail:
+    pattern: /profile/emails/create
+    defaults: { _controller: "GitonomyWebsiteBundle:Profile:createEmail" }
+
+profile_defaultEmail:
+    pattern:  /profile/emails/{id}/default
+    defaults: { _controller: "GitonomyWebsiteBundle:Profile:defaultEmail" }
+    requirements: { _method: POST }
+
+profile_activateEmail:
+    pattern:  /profile/emails/{id}/activate
+    defaults: { _controller: "GitonomyWebsiteBundle:Profile:activateEmail" }
+    requirements: { _method: POST }
+
+profile_deleteEmail:
+    pattern:  /profile/emails/{id}/delete
+    defaults: { _controller: "GitonomyWebsiteBundle:Profile:deleteEmail" }
+    requirements: { _method: POST }
+
+profile_sshKeys:
+    pattern: /profile/ssh-keys
+    defaults: { _controller: "GitonomyWebsiteBundle:Profile:sshKeys" }
+
+profile_password:
+    pattern: /profile/password
+    defaults: { _controller: "GitonomyWebsiteBundle:Profile:password" }
+
+profile_deleteSshKey:
+    pattern: /profile/delete-ssh-key/{id}
+    defaults: { _controller: "GitonomyWebsiteBundle:Profile:deleteSshKey" }
+    requirements: { _method: POST }
+
+profile_createSshKey:
+    pattern: /profile/create-ssh-key
+    defaults: { _controller: "GitonomyWebsiteBundle:Profile:createSshKey" }
+    requirements: { _method: POST }

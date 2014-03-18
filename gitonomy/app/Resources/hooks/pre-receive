@@ -1,0 +1,66 @@
+#!/bin/sh
+
+env="dev"
+if [ ! -z "$GITONOMY_ENV" ]; then
+    env="$GITONOMY_ENV"
+fi
+
+# Check the context information
+if [ -z "$GITONOMY_USER" -o -z "$GITONOMY_PROJECT" ]; then
+    echo >&2 "No environment variables GITONOMY_USER and/or GITONOMY_PROJECT"
+    exit 1
+fi
+
+# Gitonomy console
+file="`readlink -f "$0"`"
+dir="`dirname "$file"`"
+command="$dir/../../console"
+
+check_reference()
+{
+    BEFORE="$(git rev-parse $1)"
+    AFTER="$(git rev-parse $2)"
+    REFERENCE="$3"
+
+    if [ "$AFTER" = "0000000000000000000000000000000000000000" ]; then
+        REQUEST="GIT_DELETE"
+    elif [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+        REQUEST="GIT_CREATE"
+    elif [ "$BEFORE" != "$(git merge-base $BEFORE $AFTER)" ]; then
+        REQUEST="GIT_FORCE"
+    else
+        REQUEST="GIT_WRITE"
+    fi
+
+    $command gitonomy:git-permission-check "$GITONOMY_PROJECT" "$GITONOMY_USER" "$REQUEST" "$REFERENCE" "--env=$env"
+    if [ "$?" != 0 ]; then
+        cat >&2 <<END
+
+
+
+                  .
+                 /'
+                //
+            .  //
+            |\//7
+           /' " \\
+          .   . .
+          | (    \\     '._
+          |  '._  '    '. '
+          /    \\'-'_---. ) )
+         .              :.'
+         |               \\
+    -----------------------------
+          Defensive unicorn
+               says no
+    -----------------------------
+
+END
+        exit 1
+    fi
+}
+
+while read before after reference
+do
+    check_reference $before $after $reference
+done

@@ -1,0 +1,14 @@
+_splash:
+    resource: "@GitonomyWebsiteBundle/Resources/config/routing/splash.yml"
+
+_project:
+    resource: "@GitonomyWebsiteBundle/Resources/config/routing/project.yml"
+
+_user:
+    resource: "@GitonomyWebsiteBundle/Resources/config/routing/user.yml"
+
+_profile:
+    resource: "@GitonomyWebsiteBundle/Resources/config/routing/profile.yml"
+
+_administration:
+    resource: "@GitonomyWebsiteBundle/Resources/config/routing/administration.yml"

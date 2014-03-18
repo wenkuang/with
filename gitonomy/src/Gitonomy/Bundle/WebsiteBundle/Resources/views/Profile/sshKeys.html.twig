@@ -1,0 +1,58 @@
+{% extends "GitonomyWebsiteBundle::layout_profile.html.twig" %}
+
+{% trans_default_domain 'profile_ssh' %}
+
+{% block title 'page.title'|trans %}
+
+{% set local_navigation = 'sshKeys' %}
+
+{% block profile_content %}
+    <div id="content">
+        <div class="ssh-keyring">
+            <form action="{{ path('profile_createSshKey') }}" class="key key-new" method="POST">
+                <h3><i class="symbol">add</i> {{ 'title.create'|trans }}</h3>
+                <div class="key-content">
+                    {{ form_rest(form) }}
+                </div>
+                <div class="key-actions">
+                    <button type="submit" class="btn btn-small btn-info"><i class="symbol">plus</i> {{ 'button.create'|trans }}</button>
+                </div>
+            </form>
+            {% for key in sshKeys %}
+                <div class="ssh-key key{{ random([' key-large','']) }}">
+                    <h3>
+                        <i class="symbol">key</i>
+                        {{ key.title }}
+                        <span class="pull-right">
+                            {% if not key.isInstalled %}
+                                <span class="label label-info">{{ 'label.installing'|trans }}</span>
+                            {% endif %}
+                            <a href="{{ path('profile_deleteSshKey', {'id': key.id }) }}" class="btn btn-danger">{{ 'button.delete'|trans }}</a>
+                        </span>
+                    </h3>
+                    <div class="key-content">{{ key.content }}</div>
+                    <div class="key-actions">
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block before_body_end %}
+    <script type="text/javascript">
+        $(function(){
+            var keyring   = $(".ssh-keyring");
+            var width     = keyring.width();
+            var key       = keyring.find(".key").eq(0);
+            var cardWidth = key.outerWidth(true);
+            var newWidth  = Math.floor(width / cardWidth) * cardWidth;
+
+          $('.ssh-keyring').masonry({
+            itemSelector : '.key',
+            columnWidth : cardWidth
+          });
+        });
+    </script>
+{% endblock %}

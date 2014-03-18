@@ -1,0 +1,263 @@
+/** Diff **/
+
+ul.diff-summary {
+  list-style-type: none;
+}
+
+ul.diff-summary {
+  margin: 0;
+}
+
+ul.diff-summary input[type=checkbox] {
+  margin: 0;
+}
+
+ul.diff-summary a div.diff-file-label {
+  display: inline-block;
+  text-indent: 5px;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+ul.diff-summary a div.diff-file-label.creation:before {
+  content: "[+] ";
+  color: green;
+}
+
+ul.diff-summary a div.diff-file-label.creation {
+  color: green;
+}
+
+ul.diff-summary a div.diff-file-label.deletion:before {
+  content: "[-] ";
+  color: red;
+}
+
+ul.diff-summary a div.diff-file-label.deletion {
+  color: red;
+}
+
+ul.diff-summary a div.diff-file-label.modification:before {
+  content: "[ ] ";
+}
+
+ul.diff-summary a {
+  color: black;
+}
+
+ul.diff-summary a:hover > div {
+  text-decoration: underline;
+}
+
+.file-wrapper .file {
+  margin-top: 10px;
+}
+
+.file-wrapper .file > header {
+  background-color: #efefef;
+  padding: 10px;
+}
+
+.file-wrapper .file > header span.file {
+  font-weight: bold;
+}
+
+
+.file-wrapper .file > header span.file.deleted {
+  font-weight: normal;
+  text-decoration: line-through;
+}
+
+
+.file-wrapper table.file-lines {
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 1px solid #dfdfdf;
+  width: 100%;
+}
+
+.file-wrapper table.file-lines td {
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+.file-wrapper table.file-lines td.line-number {
+  padding: 0 5px;
+  background-color: #efefef;
+  border-right: 1px solid #dfdfdf;
+}
+
+.file-wrapper table.file-lines td.source {
+  width: 100%;
+}
+
+.file-wrapper table.file-lines td.source pre {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.file-wrapper table.file-lines td.source.plus {
+  background-color: #ddffdd;
+}
+
+.file-wrapper table.file-lines td.source.minus {
+  background-color: #ffdddd;
+}
+
+.file-wrapper table.file-lines td.skip {
+  background-color: #efefef;
+}
+
+
+.blob-compare {
+    display: block;
+    text-align: center;
+}
+
+.blob-compare .old, .blob-compare .new {
+  display: inline-block;
+  text-align: center;
+  padding: 1em 0;
+}
+
+.blob-compare .old {
+  padding-right: 1em;
+}
+
+.blob-compare .old .blob-image {
+  border: 1px solid red
+}
+
+.blob-compare .new .blob-image {
+  border: 1px solid green
+}
+
+/** Log **/
+
+span.git-author {
+    background-color: #ddeeff;
+    display: inline-block;
+    padding: 1px 5px;
+}
+
+span.git-author img {
+  margin-right: 5px;
+}
+
+.git-log-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.git-log {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.git-log-wrapper svg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.git-log thead th a,
+.git-log tfoot th a
+{
+    display: block;
+    background-color: #efefef;
+    font-weight: normal;
+    padding: 1em;
+}
+
+.git-log th, .git-log td {
+    line-height: 1.2em;
+}
+
+.git-log th {
+    text-align: left;
+    background-color: #e7e7e7;
+    line-height: 1.8em;
+}
+
+/** Blame **/
+.blame {
+    width: 100%;
+}
+
+-$blameBorder:       #cfcfcf
+-$blameInfoBg:       #f8f8f8
+-$blameLineNumberBg: #efefef
+-$blameLineNumberFg: #444444
+
+.blame td.information {
+    width: 200px;
+    font-size: 12px;
+    background-color: #efefef;
+}
+
+.blame td.information span.author {
+    font-weight: bold;
+}
+
+.blame td.information, .blame .information-border {
+        border-top: 1px solid #cfcfcf;
+}
+
+.blame td.line-number {
+    width: 50px;
+    color: #444444;
+    background-color: #efefef;
+    padding: 0 0.3em 0 0.6em;
+}
+
+.blame td.line-content pre {
+    border: 0
+    padding: 0
+    margin: 0
+    background: none
+}
+
+/** References **/
+
+.ref {
+    background-color: #ddd;
+    padding: 1px 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.ref.branch {
+    background-color: #33ff33;
+}
+
+.ref.branch.remote {
+    background-color: #e5e100;
+}
+
+.ref.tag {
+    background-color: black;
+    color: white;
+}
+
+/** Tree **/
+
+.pathcrumb {
+    list-style-type: none;
+    margin: 0;
+    font-size;: 1.5em;
+    line-heig;ht: 1.5em;
+    display: inline-block;
+}
+
+.pathcrumb li {
+    display: inline-block;
+}
+
+.pathcrumb li.pull-right {
+    line-height: 2em;
+}

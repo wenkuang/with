@@ -1,0 +1,18 @@
+{% extends "GitonomyWebsiteBundle::layout_project.html.twig" %}
+
+{% trans_default_domain 'project_source' %}
+{% set global_navigation = 'projects' %}
+{% set local_navigation = 'source' %}
+
+{% block title 'page.tree.title'|trans({'%project%': project.name, '%path%': path}) %}
+
+{% block project_content %}
+    {% include "GitonomyWebsiteBundle:Project:_tree_header.html.twig" with {
+        path:     path,
+        project:  project,
+        revision: revision,
+        active:   'tree',
+    } only %}
+
+    {{ git_tree(tree, revision, path) }}
+{% endblock %}

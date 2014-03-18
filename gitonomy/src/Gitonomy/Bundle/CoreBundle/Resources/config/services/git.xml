@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="gitonomy_core.git.repository_pool.class">Gitonomy\Bundle\CoreBundle\Git\RepositoryPool</parameter>
+        <parameter key="gitonomy_core.git.shell_handler.class">Gitonomy\Bundle\CoreBundle\Git\ShellHandler</parameter>
+        <parameter key="gitonomy_core.git.hook_injector.class">Gitonomy\Bundle\CoreBundle\Git\HookInjector</parameter>
+        <parameter key="gitonomy_core.git.shell_command">php %kernel.root_dir%/console gitonomy:git</parameter>
+    </parameters>
+
+    <services>
+        <service id="repository_pool" alias="gitonomy_core.git.repository_pool" />
+
+        <service id="gitonomy_core.git.repository_pool" class="%gitonomy_core.git.repository_pool.class%">
+            <tag name="gitonomy.event_subscriber" />
+            <argument>%gitonomy_core.git.repository_path%</argument>
+        </service>
+
+        <service id="gitonomy_core.git.shell_handler" class="%gitonomy_core.git.shell_handler.class%" />
+
+        <service id="gitonomy_core.git.hook_injector" class="%gitonomy_core.git.hook_injector.class%">
+            <tag name="gitonomy.event_listener" event="gitonomy.project_create" method="onProjectCreate" />
+            <argument type="collection">
+                <argument key="pre-receive">%kernel.root_dir%/Resources/hooks/pre-receive</argument>
+                <argument key="post-receive">%kernel.root_dir%/Resources/hooks/post-receive</argument>
+            </argument>
+        </service>
+    </services>
+
+</container>

@@ -1,0 +1,34 @@
+page.title.main: Administration of roles
+page.title.create: Create new role
+page.title.edit: Edit role %name%
+
+action.create: New role
+
+title.create: Create new role
+
+button.save: Save
+button.cancel: Cancel
+button.confirm.delete: Yes, I want to delete %name%
+
+form.name: Name
+form.slug: Slug
+form.description: Description
+form.permissions: Permissions
+
+form.legend.create: Create a new role
+form.legend.edit: Edit role %name%
+
+table.list.column.name: Name
+table.list.column.description: Description
+
+tooltip.edit: Edit role %name%
+tooltip.delete: Delete role %name%
+
+notice.created: Role created
+notice.updated: Role updated
+notice.deleted: Role deleted
+
+ROLE_ADMIN: Administration
+ROLE_PROJECT_CREATE: Create projects
+PROJECT_READ: Read repository
+PROJECT_ADMIN: Administrate repository

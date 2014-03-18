@@ -1,0 +1,14 @@
+{% block subject config.get('name') ~ ' - ' | raw %}
+
+{% block body_html %}
+    <h1>{{ config.get('name') }}</h1>
+    <hr />
+    {% block content_html '' %}
+{% endblock %}
+
+{% block body_text %}
+{{ config.get('name') }}
+-----------------------------
+
+{% block content_text '' %}
+{% endblock %}

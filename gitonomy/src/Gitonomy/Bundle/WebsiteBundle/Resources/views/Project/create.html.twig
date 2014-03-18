@@ -1,0 +1,24 @@
+{% extends "GitonomyWebsiteBundle::layout.html.twig" %}
+
+{% trans_default_domain 'project' %}
+
+{% block title 'page.title.create'|trans %}
+
+{% set global_navigation = 'new_project' %}
+
+{% block content %}
+    <h1>{{ 'title.create'|trans }}</h1>
+    <div id="content">
+    <form method="POST" action"{{ path('project_create') }}" class="form-horizontal" novalidate>
+            <legend>{{ 'form.legend'|trans }}</legend>
+            {{ form_widget(form) }}
+            <div class="control-group">
+                <div class="controls">
+                    <button class="btn btn-success" type="submit"><i class="symbol">plus</i> {{ 'button.create'|trans }}</button>
+                    <a class="btn" href="{{ path('project_list') }}">{{ 'button.cancel'|trans }}</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+{% endblock %}
