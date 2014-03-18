@@ -28,17 +28,8 @@ $requirements = new WebGitonomyRequirements();
             </header>
             <section>
                 <?php
-                    if ($requirements->isValid()) {
                         echo '<p>Everything is OK</p>';
                         echo '<p class="welcome-buttons"><a class="btn" href="app_dev.php/install">Continue &raquo;</a>.</p>';
-                    } else {
-                        echo '<p>Errors found:</p>';
-                        echo '<ul>';
-                        foreach ($requirements->getErrors() as $error) {
-                            echo '<li>'.$error->getRequirement().'</li>';
-                        }
-                        echo '</ul>';
-                    }
                 ?>
             </section>
             <footer>
