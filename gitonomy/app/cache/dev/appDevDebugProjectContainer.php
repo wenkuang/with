@@ -284,7 +284,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAnnotationReaderService()
     {
-        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\FileCacheReader(new \Doctrine\Common\Annotations\AnnotationReader(), '/root/software/gitonomy/app/cache/dev/annotations', true);
+        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\FileCacheReader(new \Doctrine\Common\Annotations\AnnotationReader(), '/var/www/whencode/gitonomy/app/cache/dev/annotations', true);
     }
 
     /**
@@ -299,23 +299,23 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('templating.loader');
 
-        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('/root/software/gitonomy/app/cache/dev/assetic/config'), true)));
+        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('/var/www/whencode/gitonomy/app/cache/dev/assetic/config'), true)));
 
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FrameworkBundle', '/root/software/gitonomy/app/Resources/FrameworkBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FrameworkBundle', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SecurityBundle', '/root/software/gitonomy/app/Resources/SecurityBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SecurityBundle', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'TwigBundle', '/root/software/gitonomy/app/Resources/TwigBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'TwigBundle', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'MonologBundle', '/root/software/gitonomy/app/Resources/MonologBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'MonologBundle', '/root/software/gitonomy/vendor/symfony/monolog-bundle/Symfony/Bundle/MonologBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AsseticBundle', '/root/software/gitonomy/app/Resources/AsseticBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AsseticBundle', '/root/software/gitonomy/vendor/symfony/assetic-bundle/Symfony/Bundle/AsseticBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineBundle', '/root/software/gitonomy/app/Resources/DoctrineBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineBundle', '/root/software/gitonomy/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineFixturesBundle', '/root/software/gitonomy/app/Resources/DoctrineFixturesBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineFixturesBundle', '/root/software/gitonomy/vendor/doctrine/doctrine-fixtures-bundle/Doctrine/Bundle/FixturesBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'BuzzBundle', '/root/software/gitonomy/app/Resources/BuzzBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'BuzzBundle', '/root/software/gitonomy/vendor/juliendidier/buzz-bundle/Buzz/Bundle/BuzzBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyCoreBundle', '/root/software/gitonomy/app/Resources/GitonomyCoreBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyCoreBundle', '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyWebsiteBundle', '/root/software/gitonomy/app/Resources/GitonomyWebsiteBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyWebsiteBundle', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyGitBundle', '/root/software/gitonomy/app/Resources/GitonomyGitBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyGitBundle', '/root/software/gitonomy/vendor/gitonomy/git-bundle/Gitonomy/Bundle/GitBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioDistributionBundle', '/root/software/gitonomy/app/Resources/SensioDistributionBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioDistributionBundle', '/root/software/gitonomy/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'WebProfilerBundle', '/root/software/gitonomy/app/Resources/WebProfilerBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'WebProfilerBundle', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyDistributionBundle', '/root/software/gitonomy/app/Resources/GitonomyDistributionBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyDistributionBundle', '/root/software/gitonomy/src/Gitonomy/Bundle/DistributionBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, '', '/root/software/gitonomy/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FrameworkBundle', '/var/www/whencode/gitonomy/app/Resources/FrameworkBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'FrameworkBundle', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SecurityBundle', '/var/www/whencode/gitonomy/app/Resources/SecurityBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SecurityBundle', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'TwigBundle', '/var/www/whencode/gitonomy/app/Resources/TwigBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'TwigBundle', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'MonologBundle', '/var/www/whencode/gitonomy/app/Resources/MonologBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'MonologBundle', '/var/www/whencode/gitonomy/vendor/symfony/monolog-bundle/Symfony/Bundle/MonologBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AsseticBundle', '/var/www/whencode/gitonomy/app/Resources/AsseticBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'AsseticBundle', '/var/www/whencode/gitonomy/vendor/symfony/assetic-bundle/Symfony/Bundle/AsseticBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineBundle', '/var/www/whencode/gitonomy/app/Resources/DoctrineBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineBundle', '/var/www/whencode/gitonomy/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineFixturesBundle', '/var/www/whencode/gitonomy/app/Resources/DoctrineFixturesBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'DoctrineFixturesBundle', '/var/www/whencode/gitonomy/vendor/doctrine/doctrine-fixtures-bundle/Doctrine/Bundle/FixturesBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'BuzzBundle', '/var/www/whencode/gitonomy/app/Resources/BuzzBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'BuzzBundle', '/var/www/whencode/gitonomy/vendor/juliendidier/buzz-bundle/Buzz/Bundle/BuzzBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyCoreBundle', '/var/www/whencode/gitonomy/app/Resources/GitonomyCoreBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyCoreBundle', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyWebsiteBundle', '/var/www/whencode/gitonomy/app/Resources/GitonomyWebsiteBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyWebsiteBundle', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyGitBundle', '/var/www/whencode/gitonomy/app/Resources/GitonomyGitBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyGitBundle', '/var/www/whencode/gitonomy/vendor/gitonomy/git-bundle/Gitonomy/Bundle/GitBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioDistributionBundle', '/var/www/whencode/gitonomy/app/Resources/SensioDistributionBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'SensioDistributionBundle', '/var/www/whencode/gitonomy/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'WebProfilerBundle', '/var/www/whencode/gitonomy/app/Resources/WebProfilerBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'WebProfilerBundle', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyDistributionBundle', '/var/www/whencode/gitonomy/app/Resources/GitonomyDistributionBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'GitonomyDistributionBundle', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/DistributionBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, '', '/var/www/whencode/gitonomy/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
 
         return $instance;
     }
@@ -553,7 +553,7 @@ class appDevDebugProjectContainer extends Container
         $a = $this->get('kernel');
         $b = $this->get('templating.filename_parser');
 
-        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, '/root/software/gitonomy/app/Resources');
+        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, '/var/www/whencode/gitonomy/app/Resources');
 
         return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => new \Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer($this), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 3 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c), 4 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine'))));
     }
@@ -772,15 +772,15 @@ class appDevDebugProjectContainer extends Container
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
         $a = new \Doctrine\Common\Cache\ArrayCache();
-        $a->setNamespace('sf2orm_default_696a12ae488f24300945e2832e4f35c2fda4bd92e618e906d72529c6e833da5f');
+        $a->setNamespace('sf2orm_default_2e8cf352555ff218db66e8c7c6fbb24f65bbce7f916daa2ddb9e158d32b943d7');
 
         $b = new \Doctrine\Common\Cache\ArrayCache();
-        $b->setNamespace('sf2orm_default_696a12ae488f24300945e2832e4f35c2fda4bd92e618e906d72529c6e833da5f');
+        $b->setNamespace('sf2orm_default_2e8cf352555ff218db66e8c7c6fbb24f65bbce7f916daa2ddb9e158d32b943d7');
 
         $c = new \Doctrine\Common\Cache\ArrayCache();
-        $c->setNamespace('sf2orm_default_696a12ae488f24300945e2832e4f35c2fda4bd92e618e906d72529c6e833da5f');
+        $c->setNamespace('sf2orm_default_2e8cf352555ff218db66e8c7c6fbb24f65bbce7f916daa2ddb9e158d32b943d7');
 
-        $d = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array('/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/doctrine' => 'Gitonomy\\Bundle\\CoreBundle\\Entity'));
+        $d = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array('/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/doctrine' => 'Gitonomy\\Bundle\\CoreBundle\\Entity'));
         $d->setGlobalBasename('mapping');
 
         $e = new \Doctrine\ORM\Mapping\Driver\DriverChain();
@@ -792,7 +792,7 @@ class appDevDebugProjectContainer extends Container
         $f->setQueryCacheImpl($b);
         $f->setResultCacheImpl($c);
         $f->setMetadataDriverImpl($e);
-        $f->setProxyDir('/root/software/gitonomy/app/cache/dev/doctrine/orm/Proxies');
+        $f->setProxyDir('/var/www/whencode/gitonomy/app/cache/dev/doctrine/orm/Proxies');
         $f->setProxyNamespace('Proxies');
         $f->setAutoGenerateProxyClasses(true);
         $f->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
@@ -855,7 +855,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFileLocatorService()
     {
-        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), '/root/software/gitonomy/app/Resources');
+        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), '/var/www/whencode/gitonomy/app/Resources');
     }
 
     /**
@@ -1510,7 +1510,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGitonomyCore_ConfigService()
     {
-        return $this->services['gitonomy_core.config'] = new \Gitonomy\Component\Config\ChainConfig(array(0 => new \Gitonomy\Component\Config\PhpFileConfig('/root/software/gitonomy/app/cache/dev/gitonomy_config.php'), 1 => new \Gitonomy\Component\Config\MysqlConfig($this->get('doctrine.dbal.default_connection')), 2 => new \Gitonomy\Component\Config\ArrayConfig(array('name' => 'Gitonomy', 'baseline' => 'git repositories inside your infrastructure', 'ssh_access' => 'john@nowhere', 'locale' => 'en_US', 'open_registration' => true, 'mailer_transport' => 'smtp', 'mailer_port' => 1025, 'mailer_host' => 'localhost', 'mailer_user' => 'username', 'mailer_password' => 'password', 'mailer_auth_mode' => 'basic', 'mailer_encryption' => 'ssl', 'mailer_from_name' => 'Gitonomy', 'mailer_from_email' => 'gitonomy@nowhere'))));
+        return $this->services['gitonomy_core.config'] = new \Gitonomy\Component\Config\ChainConfig(array(0 => new \Gitonomy\Component\Config\PhpFileConfig('/var/www/whencode/gitonomy/app/cache/dev/gitonomy_config.php'), 1 => new \Gitonomy\Component\Config\MysqlConfig($this->get('doctrine.dbal.default_connection')), 2 => new \Gitonomy\Component\Config\ArrayConfig(array('name' => 'Gitonomy', 'baseline' => 'git repositories inside your infrastructure', 'ssh_access' => 'john@nowhere', 'locale' => 'en_US', 'open_registration' => true, 'mailer_transport' => 'smtp', 'mailer_port' => 1025, 'mailer_host' => 'localhost', 'mailer_user' => 'username', 'mailer_password' => 'password', 'mailer_auth_mode' => 'basic', 'mailer_encryption' => 'ssl', 'mailer_from_name' => 'Gitonomy', 'mailer_from_email' => 'gitonomy@nowhere'))));
     }
 
     /**
@@ -1543,7 +1543,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGitonomyCore_Git_HookInjectorService()
     {
-        return $this->services['gitonomy_core.git.hook_injector'] = new \Gitonomy\Bundle\CoreBundle\Git\HookInjector(array('pre-receive' => '/root/software/gitonomy/app/Resources/hooks/pre-receive', 'post-receive' => '/root/software/gitonomy/app/Resources/hooks/post-receive'));
+        return $this->services['gitonomy_core.git.hook_injector'] = new \Gitonomy\Bundle\CoreBundle\Git\HookInjector(array('pre-receive' => '/var/www/whencode/gitonomy/app/Resources/hooks/pre-receive', 'post-receive' => '/var/www/whencode/gitonomy/app/Resources/hooks/post-receive'));
     }
 
     /**
@@ -1556,7 +1556,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGitonomyCore_Git_RepositoryPoolService()
     {
-        $this->services['gitonomy_core.git.repository_pool'] = $instance = new \Gitonomy\Bundle\CoreBundle\Debug\DebugRepositoryPool('/root/software/gitonomy/app/repositories');
+        $this->services['gitonomy_core.git.repository_pool'] = $instance = new \Gitonomy\Bundle\CoreBundle\Debug\DebugRepositoryPool('/var/www/whencode/gitonomy/app/repositories');
 
         $instance->setDataCollector($this->get('gitonomy_twig.git.data_collector'));
 
@@ -2041,7 +2041,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getMonolog_Handler_MainService()
     {
-        return $this->services['monolog.handler.main'] = new \Monolog\Handler\StreamHandler('/root/software/gitonomy/app/logs/dev.log', 100, true);
+        return $this->services['monolog.handler.main'] = new \Monolog\Handler\StreamHandler('/var/www/whencode/gitonomy/app/logs/dev.log', 100, true);
     }
 
     /**
@@ -2236,7 +2236,7 @@ class appDevDebugProjectContainer extends Container
         $d = new \Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector($this->get('doctrine'));
         $d->addLogger('default', $this->get('doctrine.dbal.logger.profiling.default'));
 
-        $this->services['profiler'] = $instance = new \Symfony\Component\HttpKernel\Profiler\Profiler(new \Symfony\Component\HttpKernel\Profiler\FileProfilerStorage('file:/root/software/gitonomy/app/cache/dev/profiler', '', '', 86400), $a);
+        $this->services['profiler'] = $instance = new \Symfony\Component\HttpKernel\Profiler\Profiler(new \Symfony\Component\HttpKernel\Profiler\FileProfilerStorage('file:/var/www/whencode/gitonomy/app/cache/dev/profiler', '', '', 86400), $a);
 
         $instance->add($c);
         $instance->add($this->get('data_collector.request'));
@@ -2336,7 +2336,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getRouterService()
     {
-        return $this->services['router'] = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, '/root/software/gitonomy/app/cache/dev/assetic/routing.yml', array('cache_dir' => '/root/software/gitonomy/app/cache/dev', 'debug' => true, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appDevUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appDevUrlMatcher', 'strict_requirements' => true), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['router'] = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, '/var/www/whencode/gitonomy/app/cache/dev/assetic/routing.yml', array('cache_dir' => '/var/www/whencode/gitonomy/app/cache/dev', 'debug' => true, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appDevUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appDevUrlMatcher', 'strict_requirements' => true), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -2459,7 +2459,7 @@ class appDevDebugProjectContainer extends Container
         $m = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $i, 'main', $l, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($f, $i, array('login_path' => 'splash_login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => 'splash_loginCheck', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $d, NULL);
         $m->setRememberMeServices($j);
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($h, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $k, 3 => $m, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $j, $g, $a, $d), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '5327df454f9ee', $a), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $h, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $i, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $i, 'splash_login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($h, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $k, 3 => $m, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $j, $g, $a, $d), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '5327e02fa3188', $a), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $h, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $i, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $i, 'splash_login', false), NULL, NULL, $a));
     }
 
     /**
@@ -2485,7 +2485,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_SecureRandomService()
     {
-        return $this->services['security.secure_random'] = new \Symfony\Component\Security\Core\Util\SecureRandom('/root/software/gitonomy/app/cache/dev/secure_random.seed', $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['security.secure_random'] = new \Symfony\Component\Security\Core\Util\SecureRandom('/var/www/whencode/gitonomy/app/cache/dev/secure_random.seed', $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -2511,7 +2511,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSensioDistribution_WebconfiguratorService()
     {
-        return $this->services['sensio_distribution.webconfigurator'] = new \Sensio\Bundle\DistributionBundle\Configurator\Configurator('/root/software/gitonomy/app');
+        return $this->services['sensio_distribution.webconfigurator'] = new \Sensio\Bundle\DistributionBundle\Configurator\Configurator('/var/www/whencode/gitonomy/app');
     }
 
     /**
@@ -2550,7 +2550,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSession_HandlerService()
     {
-        return $this->services['session.handler'] = new \Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler('/root/software/gitonomy/app/cache/dev/sessions');
+        return $this->services['session.handler'] = new \Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler('/var/www/whencode/gitonomy/app/cache/dev/sessions');
     }
 
     /**
@@ -2563,7 +2563,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSession_Storage_FilesystemService()
     {
-        return $this->services['session.storage.filesystem'] = new \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage('/root/software/gitonomy/app/cache/dev/sessions', 'MOCKSESSID', $this->get('session.storage.metadata_bag'));
+        return $this->services['session.storage.filesystem'] = new \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage('/var/www/whencode/gitonomy/app/cache/dev/sessions', 'MOCKSESSID', $this->get('session.storage.metadata_bag'));
     }
 
     /**
@@ -2716,7 +2716,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTemplating_Helper_CodeService()
     {
-        return $this->services['templating.helper.code'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper(NULL, '/root/software/gitonomy/app', 'UTF-8');
+        return $this->services['templating.helper.code'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper(NULL, '/var/www/whencode/gitonomy/app', 'UTF-8');
     }
 
     /**
@@ -3236,176 +3236,176 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTranslator_DefaultService()
     {
-        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => '/root/software/gitonomy/app/cache/dev/translations', 'debug' => true));
+        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => '/var/www/whencode/gitonomy/app/cache/dev/translations', 'debug' => true));
 
         $instance->setFallbackLocales(array(0 => 'en_US'));
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf', 'sv', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf', 'sr_Latn', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf', 'da', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf', 'no', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf', 'mn', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pl.xlf', 'pl', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sl.xlf', 'sl', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf', 'cs', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf', 'lb', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fr.xlf', 'fr', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf', 'hu', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf', 'de', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf', 'uk', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.gl.xlf', 'gl', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.es.xlf', 'es', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf', 'ro', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf', 'ar', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf', 'et', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf', 'en', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf', 'sq', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_TW.xlf', 'zh_TW', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf', 'lt', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf', 'hy', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nb.xlf', 'nb', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf', 'ru', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sk.xlf', 'sk', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf', 'el', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf', 'ja', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf', 'eu', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf', 'nl', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf', 'zh_CN', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf', 'pt_BR', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.it.xlf', 'it', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf', 'bg', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf', 'pt', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf', 'ca', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf', 'af', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf', 'tr', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf', 'fa', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf', 'hr', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf', 'he', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf', 'id', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf', 'fi', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf', 'cy', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf', 'vi', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sv.xlf', 'sv', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Latn.xlf', 'sr_Latn', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.da.xlf', 'da', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.mn.xlf', 'mn', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pl.xlf', 'pl', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sl.xlf', 'sl', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.cs.xlf', 'cs', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lb.xlf', 'lb', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fr.xlf', 'fr', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hu.xlf', 'hu', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.de.xlf', 'de', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf', 'uk', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.gl.xlf', 'gl', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.es.xlf', 'es', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ro.xlf', 'ro', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ar.xlf', 'ar', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.et.xlf', 'et', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.en.xlf', 'en', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lt.xlf', 'lt', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hy.xlf', 'hy', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nb.xlf', 'nb', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ru.xlf', 'ru', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sk.xlf', 'sk', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.el.xlf', 'el', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ja.xlf', 'ja', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf', 'eu', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nl.xlf', 'nl', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.zh_CN.xlf', 'zh_CN', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lv.xlf', 'lv', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt_BR.xlf', 'pt_BR', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.it.xlf', 'it', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf', 'bg', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf', 'pt', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ca.xlf', 'ca', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fa.xlf', 'fa', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hr.xlf', 'hr', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.he.xlf', 'he', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.id.xlf', 'id', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf', 'fi', 'validators');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_PT.xlf', 'pt_PT', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.es.xlf', 'es', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.da.xlf', 'da', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Latn.xlf', 'sr_Latn', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.hu.xlf', 'hu', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ua.xlf', 'ua', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.lb.xlf', 'lb', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_BR.xlf', 'pt_BR', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ar.xlf', 'ar', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sv.xlf', 'sv', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.no.xlf', 'no', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ro.xlf', 'ro', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sl.xlf', 'sl', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.nl.xlf', 'nl', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.el.xlf', 'el', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ru.xlf', 'ru', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fr.xlf', 'fr', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.de.xlf', 'de', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fa.xlf', 'fa', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ca.xlf', 'ca', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.tr.xlf', 'tr', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.it.xlf', 'it', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.gl.xlf', 'gl', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.en.xlf', 'en', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pl.xlf', 'pl', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Cyrl.xlf', 'sr_Cyrl', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.cs.xlf', 'cs', 'security');
-        $instance->addResource('xlf', '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sk.xlf', 'sk', 'security');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_role.en_US.yml', 'en_US', 'administration_role');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/login.fr_FR.yml', 'fr_FR', 'login');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_ssh.fr_FR.yml', 'fr_FR', 'profile_ssh');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_config.en_US.yml', 'en_US', 'administration_config');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_navigation.fr_FR.yml', 'fr_FR', 'administration_navigation');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/navigation_project.fr_FR.yml', 'fr_FR', 'navigation_project');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/error.en_US.yml', 'en_US', 'error');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/form.en_US.yml', 'en_US', 'form');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_permissions.fr_FR.yml', 'fr_FR', 'project_permissions');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_branches.en_US.yml', 'en_US', 'project_branches');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/register.fr_FR.yml', 'fr_FR', 'register');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/login.en_US.yml', 'en_US', 'login');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project.en_US.yml', 'en_US', 'project');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_password.en_US.yml', 'en_US', 'profile_password');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_config.fr_FR.yml', 'fr_FR', 'administration_config');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/navigation_project.en_US.yml', 'en_US', 'navigation_project');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_user.fr_FR.yml', 'fr_FR', 'administration_user');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_tags.en_US.yml', 'en_US', 'project_tags');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_source.fr_FR.yml', 'fr_FR', 'project_source');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_list.en_US.yml', 'en_US', 'project_list');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_navigation.en_US.yml', 'en_US', 'profile_navigation');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_history.fr_FR.yml', 'fr_FR', 'project_history');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/register.en_US.yml', 'en_US', 'register');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/active_email.en_US.yml', 'en_US', 'active_email');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project.fr_FR.yml', 'fr_FR', 'project');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_admin.fr_FR.yml', 'fr_FR', 'project_admin');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_tags.fr_FR.yml', 'fr_FR', 'project_tags');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/menu.fr_FR.yml', 'fr_FR', 'menu');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_branches.fr_FR.yml', 'fr_FR', 'project_branches');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_information.fr_FR.yml', 'fr_FR', 'profile_information');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/newsfeed.en_US.yml', 'en_US', 'newsfeed');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_role.fr_FR.yml', 'fr_FR', 'administration_role');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/forgot_password.en_US.yml', 'en_US', 'forgot_password');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_version.en_US.yml', 'en_US', 'administration_version');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/newsfeed.fr_FR.yml', 'fr_FR', 'newsfeed');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_ssh.en_US.yml', 'en_US', 'profile_ssh');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_navigation.en_US.yml', 'en_US', 'administration_navigation');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_source.en_US.yml', 'en_US', 'project_source');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/user_show.en_US.yml', 'en_US', 'user_show');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/menu.en_US.yml', 'en_US', 'menu');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_user.en_US.yml', 'en_US', 'administration_user');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_list.fr_FR.yml', 'fr_FR', 'project_list');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_permissions.en_US.yml', 'en_US', 'project_permissions');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_password.fr_FR.yml', 'fr_FR', 'profile_password');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_information.en_US.yml', 'en_US', 'profile_information');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_navigation.fr_FR.yml', 'fr_FR', 'profile_navigation');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/error.fr_FR.yml', 'fr_FR', 'error');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_admin.en_US.yml', 'en_US', 'project_admin');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/forgot_password.fr_FR.yml', 'fr_FR', 'forgot_password');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_history.en_US.yml', 'en_US', 'project_history');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/active_email.fr_FR.yml', 'fr_FR', 'active_email');
-        $instance->addResource('yml', '/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_version.fr_FR.yml', 'fr_FR', 'administration_version');
-        $instance->addResource('yml', '/root/software/gitonomy/vendor/gitonomy/git-bundle/Gitonomy/Bundle/GitBundle/Resources/translations/git.fr_FR.yml', 'fr_FR', 'git');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf', 'sv', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf', 'sr_Latn', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf', 'da', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf', 'no', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf', 'mn', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pl.xlf', 'pl', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sl.xlf', 'sl', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf', 'cs', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf', 'lb', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fr.xlf', 'fr', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf', 'hu', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf', 'de', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf', 'uk', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.gl.xlf', 'gl', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.es.xlf', 'es', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf', 'ro', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf', 'ar', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf', 'et', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf', 'en', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf', 'sq', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_TW.xlf', 'zh_TW', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf', 'lt', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf', 'hy', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nb.xlf', 'nb', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf', 'ru', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sk.xlf', 'sk', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf', 'el', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf', 'ja', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf', 'eu', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf', 'nl', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf', 'zh_CN', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf', 'pt_BR', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.it.xlf', 'it', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf', 'bg', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf', 'pt', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf', 'ca', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf', 'af', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf', 'tr', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf', 'fa', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf', 'hr', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf', 'he', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf', 'id', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf', 'fi', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf', 'cy', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf', 'vi', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sv.xlf', 'sv', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Latn.xlf', 'sr_Latn', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.da.xlf', 'da', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.mn.xlf', 'mn', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pl.xlf', 'pl', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sl.xlf', 'sl', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.cs.xlf', 'cs', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lb.xlf', 'lb', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fr.xlf', 'fr', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hu.xlf', 'hu', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.de.xlf', 'de', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf', 'uk', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.gl.xlf', 'gl', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.es.xlf', 'es', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ro.xlf', 'ro', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ar.xlf', 'ar', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.et.xlf', 'et', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.en.xlf', 'en', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lt.xlf', 'lt', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hy.xlf', 'hy', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nb.xlf', 'nb', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ru.xlf', 'ru', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sk.xlf', 'sk', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.el.xlf', 'el', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ja.xlf', 'ja', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf', 'eu', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nl.xlf', 'nl', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.zh_CN.xlf', 'zh_CN', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lv.xlf', 'lv', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt_BR.xlf', 'pt_BR', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.it.xlf', 'it', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf', 'bg', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf', 'pt', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ca.xlf', 'ca', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fa.xlf', 'fa', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hr.xlf', 'hr', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.he.xlf', 'he', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.id.xlf', 'id', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf', 'fi', 'validators');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_PT.xlf', 'pt_PT', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.es.xlf', 'es', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.da.xlf', 'da', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Latn.xlf', 'sr_Latn', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.hu.xlf', 'hu', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ua.xlf', 'ua', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.lb.xlf', 'lb', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_BR.xlf', 'pt_BR', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ar.xlf', 'ar', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sv.xlf', 'sv', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.no.xlf', 'no', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ro.xlf', 'ro', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sl.xlf', 'sl', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.nl.xlf', 'nl', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.el.xlf', 'el', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ru.xlf', 'ru', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fr.xlf', 'fr', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.de.xlf', 'de', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fa.xlf', 'fa', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ca.xlf', 'ca', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.tr.xlf', 'tr', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.it.xlf', 'it', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.gl.xlf', 'gl', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.en.xlf', 'en', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pl.xlf', 'pl', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Cyrl.xlf', 'sr_Cyrl', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.cs.xlf', 'cs', 'security');
+        $instance->addResource('xlf', '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sk.xlf', 'sk', 'security');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_role.en_US.yml', 'en_US', 'administration_role');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/login.fr_FR.yml', 'fr_FR', 'login');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_ssh.fr_FR.yml', 'fr_FR', 'profile_ssh');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_config.en_US.yml', 'en_US', 'administration_config');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_navigation.fr_FR.yml', 'fr_FR', 'administration_navigation');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/navigation_project.fr_FR.yml', 'fr_FR', 'navigation_project');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/error.en_US.yml', 'en_US', 'error');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/form.en_US.yml', 'en_US', 'form');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_permissions.fr_FR.yml', 'fr_FR', 'project_permissions');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_branches.en_US.yml', 'en_US', 'project_branches');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/register.fr_FR.yml', 'fr_FR', 'register');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/login.en_US.yml', 'en_US', 'login');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project.en_US.yml', 'en_US', 'project');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_password.en_US.yml', 'en_US', 'profile_password');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_config.fr_FR.yml', 'fr_FR', 'administration_config');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/navigation_project.en_US.yml', 'en_US', 'navigation_project');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_user.fr_FR.yml', 'fr_FR', 'administration_user');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_tags.en_US.yml', 'en_US', 'project_tags');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_source.fr_FR.yml', 'fr_FR', 'project_source');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_list.en_US.yml', 'en_US', 'project_list');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_navigation.en_US.yml', 'en_US', 'profile_navigation');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_history.fr_FR.yml', 'fr_FR', 'project_history');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/register.en_US.yml', 'en_US', 'register');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/active_email.en_US.yml', 'en_US', 'active_email');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project.fr_FR.yml', 'fr_FR', 'project');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_admin.fr_FR.yml', 'fr_FR', 'project_admin');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_tags.fr_FR.yml', 'fr_FR', 'project_tags');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/menu.fr_FR.yml', 'fr_FR', 'menu');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_branches.fr_FR.yml', 'fr_FR', 'project_branches');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_information.fr_FR.yml', 'fr_FR', 'profile_information');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/newsfeed.en_US.yml', 'en_US', 'newsfeed');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_role.fr_FR.yml', 'fr_FR', 'administration_role');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/forgot_password.en_US.yml', 'en_US', 'forgot_password');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_version.en_US.yml', 'en_US', 'administration_version');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/newsfeed.fr_FR.yml', 'fr_FR', 'newsfeed');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_ssh.en_US.yml', 'en_US', 'profile_ssh');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_navigation.en_US.yml', 'en_US', 'administration_navigation');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_source.en_US.yml', 'en_US', 'project_source');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/user_show.en_US.yml', 'en_US', 'user_show');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/menu.en_US.yml', 'en_US', 'menu');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_user.en_US.yml', 'en_US', 'administration_user');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_list.fr_FR.yml', 'fr_FR', 'project_list');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_permissions.en_US.yml', 'en_US', 'project_permissions');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_password.fr_FR.yml', 'fr_FR', 'profile_password');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_information.en_US.yml', 'en_US', 'profile_information');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_navigation.fr_FR.yml', 'fr_FR', 'profile_navigation');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/error.fr_FR.yml', 'fr_FR', 'error');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_admin.en_US.yml', 'en_US', 'project_admin');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/forgot_password.fr_FR.yml', 'fr_FR', 'forgot_password');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_history.en_US.yml', 'en_US', 'project_history');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/active_email.fr_FR.yml', 'fr_FR', 'active_email');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_version.fr_FR.yml', 'fr_FR', 'administration_version');
+        $instance->addResource('yml', '/var/www/whencode/gitonomy/vendor/gitonomy/git-bundle/Gitonomy/Bundle/GitBundle/Resources/translations/git.fr_FR.yml', 'fr_FR', 'git');
 
         return $instance;
     }
@@ -3422,7 +3422,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = $this->get('router');
 
-        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => true, 'strict_variables' => true, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'cache' => '/root/software/gitonomy/app/cache/dev/twig', 'charset' => 'UTF-8', 'paths' => array()));
+        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => true, 'strict_variables' => true, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'cache' => '/var/www/whencode/gitonomy/app/cache/dev/twig', 'charset' => 'UTF-8', 'paths' => array()));
 
         $instance->addExtension(new \Twig_Extensions_Extension_Debug());
         $instance->addExtension(new \Symfony\Bundle\SecurityBundle\Twig\Extension\LogoutUrlExtension($this->get('templating.helper.logout_url')));
@@ -3430,7 +3430,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension($this->get('translator.default')));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\AssetsExtension($this));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\ActionsExtension($this));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, '/root/software/gitonomy/app', 'UTF-8'));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, '/var/www/whencode/gitonomy/app', 'UTF-8'));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension($a));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\StopwatchExtension($this->get('debug.stopwatch', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
@@ -3484,17 +3484,17 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['twig.loader'] = $instance = new \Symfony\Bundle\TwigBundle\Loader\FilesystemLoader($this->get('templating.locator'), $this->get('templating.name_parser'));
 
-        $instance->addPath('/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views', 'Framework');
-        $instance->addPath('/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views', 'Security');
-        $instance->addPath('/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views', 'Twig');
-        $instance->addPath('/root/software/gitonomy/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
-        $instance->addPath('/root/software/gitonomy/vendor/juliendidier/buzz-bundle/Buzz/Bundle/BuzzBundle/Resources/views', 'Buzz');
-        $instance->addPath('/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/views', 'GitonomyWebsite');
-        $instance->addPath('/root/software/gitonomy/vendor/gitonomy/git-bundle/Gitonomy/Bundle/GitBundle/Resources/views', 'GitonomyGit');
-        $instance->addPath('/root/software/gitonomy/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
-        $instance->addPath('/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
-        $instance->addPath('/root/software/gitonomy/src/Gitonomy/Bundle/DistributionBundle/Resources/views', 'GitonomyDistribution');
-        $instance->addPath('/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form');
+        $instance->addPath('/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views', 'Framework');
+        $instance->addPath('/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views', 'Security');
+        $instance->addPath('/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views', 'Twig');
+        $instance->addPath('/var/www/whencode/gitonomy/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
+        $instance->addPath('/var/www/whencode/gitonomy/vendor/juliendidier/buzz-bundle/Buzz/Bundle/BuzzBundle/Resources/views', 'Buzz');
+        $instance->addPath('/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/views', 'GitonomyWebsite');
+        $instance->addPath('/var/www/whencode/gitonomy/vendor/gitonomy/git-bundle/Gitonomy/Bundle/GitBundle/Resources/views', 'GitonomyGit');
+        $instance->addPath('/var/www/whencode/gitonomy/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
+        $instance->addPath('/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
+        $instance->addPath('/var/www/whencode/gitonomy/src/Gitonomy/Bundle/DistributionBundle/Resources/views', 'GitonomyDistribution');
+        $instance->addPath('/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form');
 
         return $instance;
     }
@@ -3617,7 +3617,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_AssetFactoryService()
     {
-        $this->services['assetic.asset_factory'] = $instance = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), '/root/software/gitonomy/app/../web', true);
+        $this->services['assetic.asset_factory'] = $instance = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), '/var/www/whencode/gitonomy/app/../web', true);
 
         $instance->addWorker(new \Assetic\Factory\Worker\EnsureFilterWorker('/\\.less$/', $this->get('assetic.filter.lessphp')));
         $instance->addWorker(new \Symfony\Bundle\AsseticBundle\Factory\Worker\UseControllerWorker());
@@ -3639,7 +3639,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_CacheService()
     {
-        return $this->services['assetic.cache'] = new \Assetic\Cache\FilesystemCache('/root/software/gitonomy/app/cache/dev/assetic/assets');
+        return $this->services['assetic.cache'] = new \Assetic\Cache\FilesystemCache('/var/www/whencode/gitonomy/app/cache/dev/assetic/assets');
     }
 
     /**
@@ -3747,7 +3747,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = new \Symfony\Component\Security\Core\User\UserChecker();
 
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.entity'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5327df454f9ee')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.entity'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'ThisTokenIsNotSoSecretChangeIt', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5327e02fa3188')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
@@ -3819,7 +3819,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTemplating_LocatorService()
     {
-        return $this->services['templating.locator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator($this->get('file_locator'), '/root/software/gitonomy/app/cache/dev');
+        return $this->services['templating.locator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator($this->get('file_locator'), '/var/www/whencode/gitonomy/app/cache/dev');
     }
 
     /**
@@ -3836,7 +3836,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getValidator_Mapping_ClassMetadataFactoryService()
     {
-        return $this->services['validator.mapping.class_metadata_factory'] = new \Symfony\Component\Validator\Mapping\ClassMetadataFactory(new \Symfony\Component\Validator\Mapping\Loader\LoaderChain(array(0 => new \Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader(), 1 => new \Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader(array(0 => '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml', 1 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/ProjectGitAccess.xml', 2 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserRoleProject.xml', 3 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Role.xml', 4 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/User.xml', 5 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Email.xml', 6 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserSshKey.xml', 7 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Project.xml')), 2 => new \Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader(array()))), NULL);
+        return $this->services['validator.mapping.class_metadata_factory'] = new \Symfony\Component\Validator\Mapping\ClassMetadataFactory(new \Symfony\Component\Validator\Mapping\Loader\LoaderChain(array(0 => new \Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader(), 1 => new \Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader(array(0 => '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml', 1 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/ProjectGitAccess.xml', 2 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserRoleProject.xml', 3 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Role.xml', 4 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/User.xml', 5 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Email.xml', 6 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserSshKey.xml', 7 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Project.xml')), 2 => new \Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader(array()))), NULL);
     }
 
     /**
@@ -3890,12 +3890,12 @@ class appDevDebugProjectContainer extends Container
     protected function getDefaultParameters()
     {
         return array(
-            'kernel.root_dir' => '/root/software/gitonomy/app',
+            'kernel.root_dir' => '/var/www/whencode/gitonomy/app',
             'kernel.environment' => 'dev',
             'kernel.debug' => true,
             'kernel.name' => 'app',
-            'kernel.cache_dir' => '/root/software/gitonomy/app/cache/dev',
-            'kernel.logs_dir' => '/root/software/gitonomy/app/logs',
+            'kernel.cache_dir' => '/var/www/whencode/gitonomy/app/cache/dev',
+            'kernel.logs_dir' => '/var/www/whencode/gitonomy/app/logs',
             'kernel.bundles' => array(
                 'FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle',
                 'SecurityBundle' => 'Symfony\\Bundle\\SecurityBundle\\SecurityBundle',
@@ -3914,7 +3914,7 @@ class appDevDebugProjectContainer extends Container
             ),
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'appDevDebugProjectContainer',
-            'gitonomy.shell_command' => 'php /root/software/gitonomy/app/console gitonomy:git',
+            'gitonomy.shell_command' => 'php /var/www/whencode/gitonomy/app/console gitonomy:git',
             'gitonomy.version' => '0.4-DEV',
             'database_driver' => 'pdo_mysql',
             'database_host' => 'localhost',
@@ -3924,8 +3924,8 @@ class appDevDebugProjectContainer extends Container
             'database_password' => NULL,
             'secret' => 'ThisTokenIsNotSoSecretChangeIt',
             'remember_secret' => 'ThisTokenIsNotSoSecretChangeIt',
-            'repository_path' => '/root/software/gitonomy/app/repositories',
-            'assetic.filter.compass.images_dir' => '/root/software/gitonomy/app/../web/images',
+            'repository_path' => '/var/www/whencode/gitonomy/app/repositories',
+            'assetic.filter.compass.images_dir' => '/var/www/whencode/gitonomy/app/../web/images',
             'assetic.filter.compass.http_path' => '/images',
             'controller_resolver.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerResolver',
             'controller_name_converter.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerNameParser',
@@ -3978,7 +3978,7 @@ class appDevDebugProjectContainer extends Container
             'debug.errors_logger_listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\ErrorsLoggerListener',
             'debug.event_dispatcher.class' => 'Symfony\\Component\\HttpKernel\\Debug\\TraceableEventDispatcher',
             'debug.stopwatch.class' => 'Symfony\\Component\\Stopwatch\\Stopwatch',
-            'debug.container.dump' => '/root/software/gitonomy/app/cache/dev/appDevDebugProjectContainer.xml',
+            'debug.container.dump' => '/var/www/whencode/gitonomy/app/cache/dev/appDevDebugProjectContainer.xml',
             'debug.controller_resolver.class' => 'Symfony\\Component\\HttpKernel\\Controller\\TraceableControllerResolver',
             'kernel.secret' => 'ThisTokenIsNotSoSecretChangeIt',
             'kernel.http_method_override' => true,
@@ -4003,7 +4003,7 @@ class appDevDebugProjectContainer extends Container
             'session.storage.options' => array(
 
             ),
-            'session.save_path' => '/root/software/gitonomy/app/cache/dev/sessions',
+            'session.save_path' => '/var/www/whencode/gitonomy/app/cache/dev/sessions',
             'session.metadata.update_threshold' => '0',
             'security.secure_random.class' => 'Symfony\\Component\\Security\\Core\\Util\\SecureRandom',
             'form.resolved_type_factory.class' => 'Symfony\\Component\\Form\\ResolvedFormTypeFactory',
@@ -4062,14 +4062,14 @@ class appDevDebugProjectContainer extends Container
             'validator.mapping.loader.yaml_files_loader.class' => 'Symfony\\Component\\Validator\\Mapping\\Loader\\YamlFilesLoader',
             'validator.validator_factory.class' => 'Symfony\\Bundle\\FrameworkBundle\\Validator\\ConstraintValidatorFactory',
             'validator.mapping.loader.xml_files_loader.mapping_files' => array(
-                0 => '/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml',
-                1 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/ProjectGitAccess.xml',
-                2 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserRoleProject.xml',
-                3 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Role.xml',
-                4 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/User.xml',
-                5 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Email.xml',
-                6 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserSshKey.xml',
-                7 => '/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Project.xml',
+                0 => '/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml',
+                1 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/ProjectGitAccess.xml',
+                2 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserRoleProject.xml',
+                3 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Role.xml',
+                4 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/User.xml',
+                5 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Email.xml',
+                6 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserSshKey.xml',
+                7 => '/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Project.xml',
             ),
             'validator.mapping.loader.yaml_files_loader.mapping_files' => array(
 
@@ -4092,7 +4092,7 @@ class appDevDebugProjectContainer extends Container
             'data_collector.form.extractor.class' => 'Symfony\\Component\\Form\\Extension\\DataCollector\\FormDataExtractor',
             'profiler_listener.only_exceptions' => false,
             'profiler_listener.only_master_requests' => false,
-            'profiler.storage.dsn' => 'file:/root/software/gitonomy/app/cache/dev/profiler',
+            'profiler.storage.dsn' => 'file:/var/www/whencode/gitonomy/app/cache/dev/profiler',
             'profiler.storage.username' => '',
             'profiler.storage.password' => '',
             'profiler.storage.lifetime' => 86400,
@@ -4116,7 +4116,7 @@ class appDevDebugProjectContainer extends Container
             'router.request_context.host' => 'localhost',
             'router.request_context.scheme' => 'http',
             'router.request_context.base_url' => '',
-            'router.resource' => '/root/software/gitonomy/app/cache/dev/assetic/routing.yml',
+            'router.resource' => '/var/www/whencode/gitonomy/app/cache/dev/assetic/routing.yml',
             'router.cache_class_prefix' => 'appDev',
             'request_listener.http_port' => 80,
             'request_listener.https_port' => 443,
@@ -4231,7 +4231,7 @@ class appDevDebugProjectContainer extends Container
                 'exception_controller' => 'twig.controller.exception:showAction',
                 'autoescape_service' => NULL,
                 'autoescape_service_method' => NULL,
-                'cache' => '/root/software/gitonomy/app/cache/dev/twig',
+                'cache' => '/var/www/whencode/gitonomy/app/cache/dev/twig',
                 'charset' => 'UTF-8',
                 'paths' => array(
 
@@ -4286,7 +4286,7 @@ class appDevDebugProjectContainer extends Container
             'assetic.node.paths' => array(
 
             ),
-            'assetic.cache_dir' => '/root/software/gitonomy/app/cache/dev/assetic',
+            'assetic.cache_dir' => '/var/www/whencode/gitonomy/app/cache/dev/assetic',
             'assetic.bundles' => array(
                 0 => 'FrameworkBundle',
                 1 => 'SecurityBundle',
@@ -4311,8 +4311,8 @@ class appDevDebugProjectContainer extends Container
             'assetic.debug' => true,
             'assetic.use_controller' => true,
             'assetic.enable_profiler' => false,
-            'assetic.read_from' => '/root/software/gitonomy/app/../web',
-            'assetic.write_to' => '/root/software/gitonomy/app/../web',
+            'assetic.read_from' => '/var/www/whencode/gitonomy/app/../web',
+            'assetic.write_to' => '/var/www/whencode/gitonomy/app/../web',
             'assetic.variables' => array(
 
             ),
@@ -4394,7 +4394,7 @@ class appDevDebugProjectContainer extends Container
             'doctrine.orm.naming_strategy.default.class' => 'Doctrine\\ORM\\Mapping\\DefaultNamingStrategy',
             'doctrine.orm.naming_strategy.underscore.class' => 'Doctrine\\ORM\\Mapping\\UnderscoreNamingStrategy',
             'doctrine.orm.auto_generate_proxy_classes' => true,
-            'doctrine.orm.proxy_dir' => '/root/software/gitonomy/app/cache/dev/doctrine/orm/Proxies',
+            'doctrine.orm.proxy_dir' => '/var/www/whencode/gitonomy/app/cache/dev/doctrine/orm/Proxies',
             'doctrine.orm.proxy_namespace' => 'Proxies',
             'buzz.class' => 'Buzz\\Bundle\\BuzzBundle\\Buzz\\Buzz',
             'buzz.browser_manager.class' => 'Buzz\\Bundle\\BuzzBundle\\Buzz\\BrowserManager',
@@ -4439,12 +4439,12 @@ class appDevDebugProjectContainer extends Container
             'gitonomy_core.git.repository_pool.class' => 'Gitonomy\\Bundle\\CoreBundle\\Debug\\DebugRepositoryPool',
             'gitonomy_core.git.shell_handler.class' => 'Gitonomy\\Bundle\\CoreBundle\\Git\\ShellHandler',
             'gitonomy_core.git.hook_injector.class' => 'Gitonomy\\Bundle\\CoreBundle\\Git\\HookInjector',
-            'gitonomy_core.git.shell_command' => 'php /root/software/gitonomy/app/console gitonomy:git',
+            'gitonomy_core.git.shell_command' => 'php /var/www/whencode/gitonomy/app/console gitonomy:git',
             'gitonomy_core.mailer.class' => 'Gitonomy\\Bundle\\CoreBundle\\Mailer\\DebugMailer',
             'test.client.class' => 'Gitonomy\\Bundle\\CoreBundle\\Test\\Client',
             'gitonomy_core.validation.new_email.class' => 'Gitonomy\\Bundle\\CoreBundle\\Validation\\Constraints\\NewEmailValidator',
             'gitonomy_core.validator.unique.class' => 'Gitonomy\\Bundle\\CoreBundle\\Validator\\Constraints\\UniqueValidator',
-            'gitonomy_core.git.repository_path' => '/root/software/gitonomy/app/repositories',
+            'gitonomy_core.git.repository_path' => '/var/www/whencode/gitonomy/app/repositories',
             'gitonomy_core.config.default_config' => array(
                 'name' => 'Gitonomy',
                 'baseline' => 'git repositories inside your infrastructure',

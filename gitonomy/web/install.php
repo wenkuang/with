@@ -10,10 +10,6 @@
  * with this source code in the file LICENSE.
  */
 
-if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1' && $_SERVER['REMOTE_ADDR'] !== '::1') {
-    die;
-}
-
 require_once __DIR__.'/../app/bootstrap.php.cache';
 
 use Symfony\Component\HttpFoundation\Request;

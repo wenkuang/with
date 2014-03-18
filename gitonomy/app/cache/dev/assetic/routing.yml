@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: /root/software/gitonomy/app/config/routing_dev.yml
+    resource: /var/www/whencode/gitonomy/app/config/routing_dev.yml

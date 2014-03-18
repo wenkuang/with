@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">/root/software/gitonomy/app</parameter>
+    <parameter key="kernel.root_dir">/var/www/whencode/gitonomy/app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">app</parameter>
-    <parameter key="kernel.cache_dir">/root/software/gitonomy/app/cache/dev</parameter>
-    <parameter key="kernel.logs_dir">/root/software/gitonomy/app/logs</parameter>
+    <parameter key="kernel.cache_dir">/var/www/whencode/gitonomy/app/cache/dev</parameter>
+    <parameter key="kernel.logs_dir">/var/www/whencode/gitonomy/app/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
@@ -25,7 +25,7 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
-    <parameter key="gitonomy.shell_command">php /root/software/gitonomy/app/console gitonomy:git</parameter>
+    <parameter key="gitonomy.shell_command">php /var/www/whencode/gitonomy/app/console gitonomy:git</parameter>
     <parameter key="gitonomy.version">0.4-DEV</parameter>
     <parameter key="database_driver">pdo_mysql</parameter>
     <parameter key="database_host">localhost</parameter>
@@ -35,8 +35,8 @@
     <parameter key="database_password">null</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="remember_secret">ThisTokenIsNotSoSecretChangeIt</parameter>
-    <parameter key="repository_path">/root/software/gitonomy/app/repositories</parameter>
-    <parameter key="assetic.filter.compass.images_dir">/root/software/gitonomy/app/../web/images</parameter>
+    <parameter key="repository_path">/var/www/whencode/gitonomy/app/repositories</parameter>
+    <parameter key="assetic.filter.compass.images_dir">/var/www/whencode/gitonomy/app/../web/images</parameter>
     <parameter key="assetic.filter.compass.http_path">/images</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
@@ -89,7 +89,7 @@
     <parameter key="debug.errors_logger_listener.class">Symfony\Component\HttpKernel\EventListener\ErrorsLoggerListener</parameter>
     <parameter key="debug.event_dispatcher.class">Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher</parameter>
     <parameter key="debug.stopwatch.class">Symfony\Component\Stopwatch\Stopwatch</parameter>
-    <parameter key="debug.container.dump">/root/software/gitonomy/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">/var/www/whencode/gitonomy/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="debug.controller_resolver.class">Symfony\Component\HttpKernel\Controller\TraceableControllerResolver</parameter>
     <parameter key="kernel.secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="kernel.http_method_override">true</parameter>
@@ -108,7 +108,7 @@
     <parameter key="session.handler.write_check.class">Symfony\Component\HttpFoundation\Session\Storage\Handler\WriteCheckSessionHandler</parameter>
     <parameter key="session_listener.class">Symfony\Bundle\FrameworkBundle\EventListener\SessionListener</parameter>
     <parameter key="session.storage.options" type="collection"/>
-    <parameter key="session.save_path">/root/software/gitonomy/app/cache/dev/sessions</parameter>
+    <parameter key="session.save_path">/var/www/whencode/gitonomy/app/cache/dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="security.secure_random.class">Symfony\Component\Security\Core\Util\SecureRandom</parameter>
     <parameter key="form.resolved_type_factory.class">Symfony\Component\Form\ResolvedFormTypeFactory</parameter>
@@ -167,14 +167,14 @@
     <parameter key="validator.mapping.loader.yaml_files_loader.class">Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader</parameter>
     <parameter key="validator.validator_factory.class">Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory</parameter>
     <parameter key="validator.mapping.loader.xml_files_loader.mapping_files" type="collection">
-      <parameter>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</parameter>
-      <parameter>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/ProjectGitAccess.xml</parameter>
-      <parameter>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserRoleProject.xml</parameter>
-      <parameter>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Role.xml</parameter>
-      <parameter>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/User.xml</parameter>
-      <parameter>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Email.xml</parameter>
-      <parameter>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserSshKey.xml</parameter>
-      <parameter>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Project.xml</parameter>
+      <parameter>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</parameter>
+      <parameter>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/ProjectGitAccess.xml</parameter>
+      <parameter>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserRoleProject.xml</parameter>
+      <parameter>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Role.xml</parameter>
+      <parameter>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/User.xml</parameter>
+      <parameter>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Email.xml</parameter>
+      <parameter>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserSshKey.xml</parameter>
+      <parameter>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Project.xml</parameter>
     </parameter>
     <parameter key="validator.mapping.loader.yaml_files_loader.mapping_files" type="collection"/>
     <parameter key="validator.expression.class">Symfony\Component\Validator\Constraints\ExpressionValidator</parameter>
@@ -195,7 +195,7 @@
     <parameter key="data_collector.form.extractor.class">Symfony\Component\Form\Extension\DataCollector\FormDataExtractor</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:/root/software/gitonomy/app/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:/var/www/whencode/gitonomy/app/cache/dev/profiler</parameter>
     <parameter key="profiler.storage.username"></parameter>
     <parameter key="profiler.storage.password"></parameter>
     <parameter key="profiler.storage.lifetime">86400</parameter>
@@ -219,7 +219,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">/root/software/gitonomy/app/cache/dev/assetic/routing.yml</parameter>
+    <parameter key="router.resource">/var/www/whencode/gitonomy/app/cache/dev/assetic/routing.yml</parameter>
     <parameter key="router.cache_class_prefix">appDev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -332,7 +332,7 @@
       <parameter key="exception_controller">twig.controller.exception:showAction</parameter>
       <parameter key="autoescape_service">null</parameter>
       <parameter key="autoescape_service_method">null</parameter>
-      <parameter key="cache">/root/software/gitonomy/app/cache/dev/twig</parameter>
+      <parameter key="cache">/var/www/whencode/gitonomy/app/cache/dev/twig</parameter>
       <parameter key="charset">UTF-8</parameter>
       <parameter key="paths" type="collection"/>
     </parameter>
@@ -383,7 +383,7 @@
     <parameter key="assetic.worker.ensure_filter.class">Assetic\Factory\Worker\EnsureFilterWorker</parameter>
     <parameter key="assetic.value_supplier.class">Symfony\Bundle\AsseticBundle\DefaultValueSupplier</parameter>
     <parameter key="assetic.node.paths" type="collection"/>
-    <parameter key="assetic.cache_dir">/root/software/gitonomy/app/cache/dev/assetic</parameter>
+    <parameter key="assetic.cache_dir">/var/www/whencode/gitonomy/app/cache/dev/assetic</parameter>
     <parameter key="assetic.bundles" type="collection">
       <parameter>FrameworkBundle</parameter>
       <parameter>SecurityBundle</parameter>
@@ -408,8 +408,8 @@
     <parameter key="assetic.debug">true</parameter>
     <parameter key="assetic.use_controller">true</parameter>
     <parameter key="assetic.enable_profiler">false</parameter>
-    <parameter key="assetic.read_from">/root/software/gitonomy/app/../web</parameter>
-    <parameter key="assetic.write_to">/root/software/gitonomy/app/../web</parameter>
+    <parameter key="assetic.read_from">/var/www/whencode/gitonomy/app/../web</parameter>
+    <parameter key="assetic.write_to">/var/www/whencode/gitonomy/app/../web</parameter>
     <parameter key="assetic.variables" type="collection"/>
     <parameter key="assetic.java.bin">/usr/bin/java</parameter>
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
@@ -481,7 +481,7 @@
     <parameter key="doctrine.orm.naming_strategy.default.class">Doctrine\ORM\Mapping\DefaultNamingStrategy</parameter>
     <parameter key="doctrine.orm.naming_strategy.underscore.class">Doctrine\ORM\Mapping\UnderscoreNamingStrategy</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">/root/software/gitonomy/app/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">/var/www/whencode/gitonomy/app/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="buzz.class">Buzz\Bundle\BuzzBundle\Buzz\Buzz</parameter>
     <parameter key="buzz.browser_manager.class">Buzz\Bundle\BuzzBundle\Buzz\BrowserManager</parameter>
@@ -526,12 +526,12 @@
     <parameter key="gitonomy_core.git.repository_pool.class">Gitonomy\Bundle\CoreBundle\Debug\DebugRepositoryPool</parameter>
     <parameter key="gitonomy_core.git.shell_handler.class">Gitonomy\Bundle\CoreBundle\Git\ShellHandler</parameter>
     <parameter key="gitonomy_core.git.hook_injector.class">Gitonomy\Bundle\CoreBundle\Git\HookInjector</parameter>
-    <parameter key="gitonomy_core.git.shell_command">php /root/software/gitonomy/app/console gitonomy:git</parameter>
+    <parameter key="gitonomy_core.git.shell_command">php /var/www/whencode/gitonomy/app/console gitonomy:git</parameter>
     <parameter key="gitonomy_core.mailer.class">Gitonomy\Bundle\CoreBundle\Mailer\DebugMailer</parameter>
     <parameter key="test.client.class">Gitonomy\Bundle\CoreBundle\Test\Client</parameter>
     <parameter key="gitonomy_core.validation.new_email.class">Gitonomy\Bundle\CoreBundle\Validation\Constraints\NewEmailValidator</parameter>
     <parameter key="gitonomy_core.validator.unique.class">Gitonomy\Bundle\CoreBundle\Validator\Constraints\UniqueValidator</parameter>
-    <parameter key="gitonomy_core.git.repository_path">/root/software/gitonomy/app/repositories</parameter>
+    <parameter key="gitonomy_core.git.repository_path">/var/www/whencode/gitonomy/app/repositories</parameter>
     <parameter key="gitonomy_core.config.default_config" type="collection">
       <parameter key="name">Gitonomy</parameter>
       <parameter key="baseline">git repositories inside your infrastructure</parameter>
@@ -689,7 +689,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>/root/software/gitonomy/app/Resources</argument>
+                <argument>/var/www/whencode/gitonomy/app/Resources</argument>
               </service>
             </argument>
             <argument type="service" id="templating.locator"/>
@@ -715,7 +715,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>/root/software/gitonomy/app/Resources</argument>
+                <argument>/var/www/whencode/gitonomy/app/Resources</argument>
               </service>
             </argument>
           </service>
@@ -737,7 +737,7 @@
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator">
       <argument type="service" id="kernel"/>
-      <argument>/root/software/gitonomy/app/Resources</argument>
+      <argument>/var/www/whencode/gitonomy/app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
       <argument>ThisTokenIsNotSoSecretChangeIt</argument>
@@ -823,7 +823,7 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">/root/software/gitonomy/app/cache/dev/translations</argument>
+        <argument key="cache_dir">/var/www/whencode/gitonomy/app/cache/dev/translations</argument>
         <argument key="debug">true</argument>
       </argument>
       <call method="setFallbackLocales">
@@ -833,1003 +833,1003 @@
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf</argument>
         <argument>sv</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Latn.xlf</argument>
         <argument>sr_Latn</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.da.xlf</argument>
         <argument>da</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.no.xlf</argument>
         <argument>no</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.mn.xlf</argument>
         <argument>mn</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pl.xlf</argument>
         <argument>pl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sl.xlf</argument>
         <argument>sl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cs.xlf</argument>
         <argument>cs</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lb.xlf</argument>
         <argument>lb</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fr.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fr.xlf</argument>
         <argument>fr</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hu.xlf</argument>
         <argument>hu</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.de.xlf</argument>
         <argument>de</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.uk.xlf</argument>
         <argument>uk</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.gl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.gl.xlf</argument>
         <argument>gl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.es.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.es.xlf</argument>
         <argument>es</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ro.xlf</argument>
         <argument>ro</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ar.xlf</argument>
         <argument>ar</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.et.xlf</argument>
         <argument>et</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.en.xlf</argument>
         <argument>en</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sq.xlf</argument>
         <argument>sq</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_TW.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_TW.xlf</argument>
         <argument>zh_TW</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.lt.xlf</argument>
         <argument>lt</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hy.xlf</argument>
         <argument>hy</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nb.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nb.xlf</argument>
         <argument>nb</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ru.xlf</argument>
         <argument>ru</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sk.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sk.xlf</argument>
         <argument>sk</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.el.xlf</argument>
         <argument>el</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sr_Cyrl.xlf</argument>
         <argument>sr_Cyrl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ja.xlf</argument>
         <argument>ja</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.eu.xlf</argument>
         <argument>eu</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nl.xlf</argument>
         <argument>nl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.zh_CN.xlf</argument>
         <argument>zh_CN</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt_BR.xlf</argument>
         <argument>pt_BR</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.it.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.it.xlf</argument>
         <argument>it</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.bg.xlf</argument>
         <argument>bg</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.pt.xlf</argument>
         <argument>pt</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.ca.xlf</argument>
         <argument>ca</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.af.xlf</argument>
         <argument>af</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.tr.xlf</argument>
         <argument>tr</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fa.xlf</argument>
         <argument>fa</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.hr.xlf</argument>
         <argument>hr</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.he.xlf</argument>
         <argument>he</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.id.xlf</argument>
         <argument>id</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.fi.xlf</argument>
         <argument>fi</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.cy.xlf</argument>
         <argument>cy</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.vi.xlf</argument>
         <argument>vi</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sv.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sv.xlf</argument>
         <argument>sv</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Latn.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Latn.xlf</argument>
         <argument>sr_Latn</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.da.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.da.xlf</argument>
         <argument>da</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.mn.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.mn.xlf</argument>
         <argument>mn</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pl.xlf</argument>
         <argument>pl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sl.xlf</argument>
         <argument>sl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.cs.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.cs.xlf</argument>
         <argument>cs</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lb.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lb.xlf</argument>
         <argument>lb</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fr.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fr.xlf</argument>
         <argument>fr</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hu.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hu.xlf</argument>
         <argument>hu</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.de.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.de.xlf</argument>
         <argument>de</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.uk.xlf</argument>
         <argument>uk</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.gl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.gl.xlf</argument>
         <argument>gl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.es.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.es.xlf</argument>
         <argument>es</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ro.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ro.xlf</argument>
         <argument>ro</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ar.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ar.xlf</argument>
         <argument>ar</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.et.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.et.xlf</argument>
         <argument>et</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.en.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.en.xlf</argument>
         <argument>en</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lt.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lt.xlf</argument>
         <argument>lt</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hy.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hy.xlf</argument>
         <argument>hy</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nb.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nb.xlf</argument>
         <argument>nb</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ru.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ru.xlf</argument>
         <argument>ru</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sk.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sk.xlf</argument>
         <argument>sk</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.el.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.el.xlf</argument>
         <argument>el</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Cyrl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.sr_Cyrl.xlf</argument>
         <argument>sr_Cyrl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ja.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ja.xlf</argument>
         <argument>ja</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.eu.xlf</argument>
         <argument>eu</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nl.xlf</argument>
         <argument>nl</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.zh_CN.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.zh_CN.xlf</argument>
         <argument>zh_CN</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lv.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.lv.xlf</argument>
         <argument>lv</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt_BR.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt_BR.xlf</argument>
         <argument>pt_BR</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.it.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.it.xlf</argument>
         <argument>it</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.bg.xlf</argument>
         <argument>bg</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.pt.xlf</argument>
         <argument>pt</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ca.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.ca.xlf</argument>
         <argument>ca</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fa.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fa.xlf</argument>
         <argument>fa</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hr.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.hr.xlf</argument>
         <argument>hr</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.he.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.he.xlf</argument>
         <argument>he</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.id.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.id.xlf</argument>
         <argument>id</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.fi.xlf</argument>
         <argument>fi</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_PT.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_PT.xlf</argument>
         <argument>pt_PT</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.es.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.es.xlf</argument>
         <argument>es</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.da.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.da.xlf</argument>
         <argument>da</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Latn.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Latn.xlf</argument>
         <argument>sr_Latn</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.hu.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.hu.xlf</argument>
         <argument>hu</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ua.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ua.xlf</argument>
         <argument>ua</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.lb.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.lb.xlf</argument>
         <argument>lb</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_BR.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pt_BR.xlf</argument>
         <argument>pt_BR</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ar.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ar.xlf</argument>
         <argument>ar</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sv.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sv.xlf</argument>
         <argument>sv</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.no.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.no.xlf</argument>
         <argument>no</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ro.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ro.xlf</argument>
         <argument>ro</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sl.xlf</argument>
         <argument>sl</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.nl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.nl.xlf</argument>
         <argument>nl</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.el.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.el.xlf</argument>
         <argument>el</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ru.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ru.xlf</argument>
         <argument>ru</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fr.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fr.xlf</argument>
         <argument>fr</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.de.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.de.xlf</argument>
         <argument>de</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fa.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.fa.xlf</argument>
         <argument>fa</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ca.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.ca.xlf</argument>
         <argument>ca</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.tr.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.tr.xlf</argument>
         <argument>tr</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.it.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.it.xlf</argument>
         <argument>it</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.gl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.gl.xlf</argument>
         <argument>gl</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.en.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.en.xlf</argument>
         <argument>en</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.pl.xlf</argument>
         <argument>pl</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Cyrl.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sr_Cyrl.xlf</argument>
         <argument>sr_Cyrl</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.cs.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.cs.xlf</argument>
         <argument>cs</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>xlf</argument>
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sk.xlf</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Exception/../Resources/translations/security.sk.xlf</argument>
         <argument>sk</argument>
         <argument>security</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_role.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_role.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>administration_role</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/login.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/login.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>login</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_ssh.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_ssh.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>profile_ssh</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_config.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_config.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>administration_config</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_navigation.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_navigation.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>administration_navigation</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/navigation_project.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/navigation_project.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>navigation_project</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/error.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/error.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>error</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/form.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/form.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>form</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_permissions.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_permissions.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>project_permissions</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_branches.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_branches.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>project_branches</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/register.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/register.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>register</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/login.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/login.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>login</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>project</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_password.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_password.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>profile_password</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_config.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_config.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>administration_config</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/navigation_project.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/navigation_project.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>navigation_project</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_user.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_user.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>administration_user</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_tags.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_tags.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>project_tags</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_source.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_source.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>project_source</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_list.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_list.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>project_list</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_navigation.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_navigation.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>profile_navigation</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_history.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_history.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>project_history</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/register.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/register.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>register</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/active_email.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/active_email.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>active_email</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>project</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_admin.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_admin.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>project_admin</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_tags.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_tags.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>project_tags</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/menu.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/menu.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>menu</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_branches.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_branches.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>project_branches</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_information.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_information.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>profile_information</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/newsfeed.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/newsfeed.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>newsfeed</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_role.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_role.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>administration_role</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/forgot_password.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/forgot_password.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>forgot_password</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_version.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_version.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>administration_version</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/newsfeed.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/newsfeed.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>newsfeed</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_ssh.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_ssh.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>profile_ssh</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_navigation.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_navigation.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>administration_navigation</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_source.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_source.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>project_source</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/user_show.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/user_show.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>user_show</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/menu.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/menu.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>menu</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_user.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_user.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>administration_user</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_list.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_list.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>project_list</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_permissions.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_permissions.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>project_permissions</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_password.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_password.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>profile_password</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_information.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_information.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>profile_information</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_navigation.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/profile_navigation.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>profile_navigation</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/error.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/error.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>error</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_admin.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_admin.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>project_admin</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/forgot_password.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/forgot_password.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>forgot_password</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_history.en_US.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/project_history.en_US.yml</argument>
         <argument>en_US</argument>
         <argument>project_history</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/active_email.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/active_email.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>active_email</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_version.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/translations/administration_version.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>administration_version</argument>
       </call>
       <call method="addResource">
         <argument>yml</argument>
-        <argument>/root/software/gitonomy/vendor/gitonomy/git-bundle/Gitonomy/Bundle/GitBundle/Resources/translations/git.fr_FR.yml</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/gitonomy/git-bundle/Gitonomy/Bundle/GitBundle/Resources/translations/git.fr_FR.yml</argument>
         <argument>fr_FR</argument>
         <argument>git</argument>
       </call>
@@ -2145,7 +2145,7 @@
     </service>
     <service id="security.secure_random" class="Symfony\Component\Security\Core\Util\SecureRandom">
       <tag name="monolog.logger" channel="security"/>
-      <argument>/root/software/gitonomy/app/cache/dev/secure_random.seed</argument>
+      <argument>/var/www/whencode/gitonomy/app/cache/dev/secure_random.seed</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="ignore"/>
     </service>
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy">
@@ -2373,7 +2373,7 @@
     <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
     <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
       <argument type="service" id="file_locator"/>
-      <argument>/root/software/gitonomy/app/cache/dev</argument>
+      <argument>/var/www/whencode/gitonomy/app/cache/dev</argument>
     </service>
     <service id="templating.helper.slots" class="Symfony\Component\Templating\Helper\SlotsHelper">
       <tag name="templating.helper" alias="slots"/>
@@ -2411,7 +2411,7 @@
     <service id="templating.helper.code" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper">
       <tag name="templating.helper" alias="code"/>
       <argument>null</argument>
-      <argument>/root/software/gitonomy/app</argument>
+      <argument>/var/www/whencode/gitonomy/app</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="templating.helper.translator" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper">
@@ -2471,14 +2471,14 @@
             <argument type="service">
               <service class="Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader" public="false">
                 <argument type="collection">
-                  <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
-                  <argument>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/ProjectGitAccess.xml</argument>
-                  <argument>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserRoleProject.xml</argument>
-                  <argument>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Role.xml</argument>
-                  <argument>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/User.xml</argument>
-                  <argument>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Email.xml</argument>
-                  <argument>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserSshKey.xml</argument>
-                  <argument>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Project.xml</argument>
+                  <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
+                  <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/ProjectGitAccess.xml</argument>
+                  <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserRoleProject.xml</argument>
+                  <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Role.xml</argument>
+                  <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/User.xml</argument>
+                  <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Email.xml</argument>
+                  <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/UserSshKey.xml</argument>
+                  <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/validation/Project.xml</argument>
                 </argument>
               </service>
             </argument>
@@ -2504,7 +2504,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service">
         <service class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-          <argument>file:/root/software/gitonomy/app/cache/dev/profiler</argument>
+          <argument>file:/var/www/whencode/gitonomy/app/cache/dev/profiler</argument>
           <argument></argument>
           <argument></argument>
           <argument>86400</argument>
@@ -2712,7 +2712,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5327df454f9ee</argument>
+            <argument>5327e02fa3188</argument>
           </service>
         </argument>
       </argument>
@@ -3019,7 +3019,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>5327df454f9ee</argument>
+            <argument>5327e02fa3188</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3073,7 +3073,7 @@
         <argument key="exception_controller">twig.controller.exception:showAction</argument>
         <argument key="autoescape_service">null</argument>
         <argument key="autoescape_service_method">null</argument>
-        <argument key="cache">/root/software/gitonomy/app/cache/dev/twig</argument>
+        <argument key="cache">/var/www/whencode/gitonomy/app/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
       </argument>
@@ -3129,7 +3129,7 @@
           <service class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
             <tag name="twig.extension"/>
             <argument>null</argument>
-            <argument>/root/software/gitonomy/app</argument>
+            <argument>/var/www/whencode/gitonomy/app</argument>
             <argument>UTF-8</argument>
           </service>
         </argument>
@@ -3283,7 +3283,7 @@
       <argument>true</argument>
     </service>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
-      <argument>/root/software/gitonomy/app/logs/dev.log</argument>
+      <argument>/var/www/whencode/gitonomy/app/logs/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
     </service>
@@ -3314,7 +3314,7 @@
             </argument>
             <argument type="service">
               <service class="Assetic\Cache\ConfigCache" public="false">
-                <argument>/root/software/gitonomy/app/cache/dev/assetic/config</argument>
+                <argument>/var/www/whencode/gitonomy/app/cache/dev/assetic/config</argument>
               </service>
             </argument>
             <argument>true</argument>
@@ -3331,7 +3331,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>FrameworkBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/FrameworkBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/FrameworkBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3339,7 +3339,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>FrameworkBundle</argument>
-                  <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3358,7 +3358,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>SecurityBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/SecurityBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/SecurityBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3366,7 +3366,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>SecurityBundle</argument>
-                  <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3385,7 +3385,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>TwigBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/TwigBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/TwigBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3393,7 +3393,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>TwigBundle</argument>
-                  <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3412,7 +3412,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>MonologBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/MonologBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/MonologBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3420,7 +3420,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>MonologBundle</argument>
-                  <argument>/root/software/gitonomy/vendor/symfony/monolog-bundle/Symfony/Bundle/MonologBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/vendor/symfony/monolog-bundle/Symfony/Bundle/MonologBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3439,7 +3439,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>AsseticBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/AsseticBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/AsseticBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3447,7 +3447,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>AsseticBundle</argument>
-                  <argument>/root/software/gitonomy/vendor/symfony/assetic-bundle/Symfony/Bundle/AsseticBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/vendor/symfony/assetic-bundle/Symfony/Bundle/AsseticBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3466,7 +3466,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>DoctrineBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/DoctrineBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/DoctrineBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3474,7 +3474,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>DoctrineBundle</argument>
-                  <argument>/root/software/gitonomy/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3493,7 +3493,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>DoctrineFixturesBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/DoctrineFixturesBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/DoctrineFixturesBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3501,7 +3501,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>DoctrineFixturesBundle</argument>
-                  <argument>/root/software/gitonomy/vendor/doctrine/doctrine-fixtures-bundle/Doctrine/Bundle/FixturesBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/vendor/doctrine/doctrine-fixtures-bundle/Doctrine/Bundle/FixturesBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3520,7 +3520,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>BuzzBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/BuzzBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/BuzzBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3528,7 +3528,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>BuzzBundle</argument>
-                  <argument>/root/software/gitonomy/vendor/juliendidier/buzz-bundle/Buzz/Bundle/BuzzBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/vendor/juliendidier/buzz-bundle/Buzz/Bundle/BuzzBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3547,7 +3547,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>GitonomyCoreBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/GitonomyCoreBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/GitonomyCoreBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3555,7 +3555,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>GitonomyCoreBundle</argument>
-                  <argument>/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3574,7 +3574,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>GitonomyWebsiteBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/GitonomyWebsiteBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/GitonomyWebsiteBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3582,7 +3582,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>GitonomyWebsiteBundle</argument>
-                  <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3601,7 +3601,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>GitonomyGitBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/GitonomyGitBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/GitonomyGitBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3609,7 +3609,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>GitonomyGitBundle</argument>
-                  <argument>/root/software/gitonomy/vendor/gitonomy/git-bundle/Gitonomy/Bundle/GitBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/vendor/gitonomy/git-bundle/Gitonomy/Bundle/GitBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3628,7 +3628,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>SensioDistributionBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/SensioDistributionBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/SensioDistributionBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3636,7 +3636,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>SensioDistributionBundle</argument>
-                  <argument>/root/software/gitonomy/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3655,7 +3655,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>WebProfilerBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/WebProfilerBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/WebProfilerBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3663,7 +3663,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>WebProfilerBundle</argument>
-                  <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3682,7 +3682,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>GitonomyDistributionBundle</argument>
-                  <argument>/root/software/gitonomy/app/Resources/GitonomyDistributionBundle/views</argument>
+                  <argument>/var/www/whencode/gitonomy/app/Resources/GitonomyDistributionBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3690,7 +3690,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>GitonomyDistributionBundle</argument>
-                  <argument>/root/software/gitonomy/src/Gitonomy/Bundle/DistributionBundle/Resources/views</argument>
+                  <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/DistributionBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -3706,7 +3706,7 @@
             <tag name="assetic.formula_resource" loader="twig"/>
             <argument type="service" id="templating.loader"/>
             <argument></argument>
-            <argument>/root/software/gitonomy/app/Resources/views</argument>
+            <argument>/var/www/whencode/gitonomy/app/Resources/views</argument>
             <argument>/\.[^.]+\.twig$/</argument>
           </service>
         </argument>
@@ -3719,7 +3719,7 @@
       <argument type="service">
         <service class="Symfony\Component\DependencyInjection\ParameterBag\ParameterBag" factory-method="getParameterBag" factory-service="service_container" public="false"/>
       </argument>
-      <argument>/root/software/gitonomy/app/../web</argument>
+      <argument>/var/www/whencode/gitonomy/app/../web</argument>
       <argument>true</argument>
       <call method="addWorker">
         <argument type="service">
@@ -3770,7 +3770,7 @@
       </call>
     </service>
     <service id="assetic.cache" class="Assetic\Cache\FilesystemCache" public="false">
-      <argument>/root/software/gitonomy/app/cache/dev/assetic/assets</argument>
+      <argument>/var/www/whencode/gitonomy/app/cache/dev/assetic/assets</argument>
     </service>
     <service id="assetic.request_listener" class="Symfony\Bundle\AsseticBundle\EventListener\RequestListener">
       <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
@@ -3871,7 +3871,7 @@
             <argument type="service">
               <service class="Doctrine\Common\Cache\ArrayCache" public="false">
                 <call method="setNamespace">
-                  <argument>sf2orm_default_696a12ae488f24300945e2832e4f35c2fda4bd92e618e906d72529c6e833da5f</argument>
+                  <argument>sf2orm_default_2e8cf352555ff218db66e8c7c6fbb24f65bbce7f916daa2ddb9e158d32b943d7</argument>
                 </call>
               </service>
             </argument>
@@ -3880,7 +3880,7 @@
             <argument type="service">
               <service class="Doctrine\Common\Cache\ArrayCache" public="false">
                 <call method="setNamespace">
-                  <argument>sf2orm_default_696a12ae488f24300945e2832e4f35c2fda4bd92e618e906d72529c6e833da5f</argument>
+                  <argument>sf2orm_default_2e8cf352555ff218db66e8c7c6fbb24f65bbce7f916daa2ddb9e158d32b943d7</argument>
                 </call>
               </service>
             </argument>
@@ -3889,7 +3889,7 @@
             <argument type="service">
               <service class="Doctrine\Common\Cache\ArrayCache" public="false">
                 <call method="setNamespace">
-                  <argument>sf2orm_default_696a12ae488f24300945e2832e4f35c2fda4bd92e618e906d72529c6e833da5f</argument>
+                  <argument>sf2orm_default_2e8cf352555ff218db66e8c7c6fbb24f65bbce7f916daa2ddb9e158d32b943d7</argument>
                 </call>
               </service>
             </argument>
@@ -3901,7 +3901,7 @@
                   <argument type="service">
                     <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
                       <argument type="collection">
-                        <argument key="/root/software/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/doctrine">Gitonomy\Bundle\CoreBundle\Entity</argument>
+                        <argument key="/var/www/whencode/gitonomy/src/Gitonomy/Bundle/CoreBundle/Resources/config/doctrine">Gitonomy\Bundle\CoreBundle\Entity</argument>
                       </argument>
                       <call method="setGlobalBasename">
                         <argument>mapping</argument>
@@ -3914,7 +3914,7 @@
             </argument>
           </call>
           <call method="setProxyDir">
-            <argument>/root/software/gitonomy/app/cache/dev/doctrine/orm/Proxies</argument>
+            <argument>/var/www/whencode/gitonomy/app/cache/dev/doctrine/orm/Proxies</argument>
           </call>
           <call method="setProxyNamespace">
             <argument>Proxies</argument>
@@ -3981,7 +3981,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Gitonomy\Component\Config\PhpFileConfig" public="false">
-            <argument>/root/software/gitonomy/app/cache/dev/gitonomy_config.php</argument>
+            <argument>/var/www/whencode/gitonomy/app/cache/dev/gitonomy_config.php</argument>
           </service>
         </argument>
         <argument type="service">
@@ -4049,7 +4049,7 @@
     </service>
     <service id="gitonomy_core.git.repository_pool" class="Gitonomy\Bundle\CoreBundle\Debug\DebugRepositoryPool">
       <tag name="gitonomy.event_subscriber"/>
-      <argument>/root/software/gitonomy/app/repositories</argument>
+      <argument>/var/www/whencode/gitonomy/app/repositories</argument>
       <call method="setDataCollector">
         <argument type="service" id="gitonomy_twig.git.data_collector"/>
       </call>
@@ -4058,8 +4058,8 @@
     <service id="gitonomy_core.git.hook_injector" class="Gitonomy\Bundle\CoreBundle\Git\HookInjector">
       <tag name="gitonomy.event_listener" event="gitonomy.project_create" method="onProjectCreate"/>
       <argument type="collection">
-        <argument key="pre-receive">/root/software/gitonomy/app/Resources/hooks/pre-receive</argument>
-        <argument key="post-receive">/root/software/gitonomy/app/Resources/hooks/post-receive</argument>
+        <argument key="pre-receive">/var/www/whencode/gitonomy/app/Resources/hooks/pre-receive</argument>
+        <argument key="post-receive">/var/www/whencode/gitonomy/app/Resources/hooks/post-receive</argument>
       </argument>
     </service>
     <service id="gitonomy_core.mailer" class="Gitonomy\Bundle\CoreBundle\Mailer\DebugMailer">
@@ -4154,7 +4154,7 @@
       <tag name="data_collector" id="git" template="GitonomyGitBundle:Profiler:git.html.twig"/>
     </service>
     <service id="sensio_distribution.webconfigurator" class="Sensio\Bundle\DistributionBundle\Configurator\Configurator">
-      <argument>/root/software/gitonomy/app</argument>
+      <argument>/var/www/whencode/gitonomy/app</argument>
     </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>
@@ -4368,12 +4368,12 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.filesystem" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage">
-      <argument>/root/software/gitonomy/app/cache/dev/sessions</argument>
+      <argument>/var/www/whencode/gitonomy/app/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
     <service id="session.handler" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler">
-      <argument>/root/software/gitonomy/app/cache/dev/sessions</argument>
+      <argument>/var/www/whencode/gitonomy/app/cache/dev/sessions</argument>
     </service>
     <service id="templating.loader" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\FilesystemLoader">
       <argument type="service" id="templating.locator"/>
@@ -4418,9 +4418,9 @@
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>/root/software/gitonomy/app/cache/dev/assetic/routing.yml</argument>
+      <argument>/var/www/whencode/gitonomy/app/cache/dev/assetic/routing.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">/root/software/gitonomy/app/cache/dev</argument>
+        <argument key="cache_dir">/var/www/whencode/gitonomy/app/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -4439,7 +4439,7 @@
       <argument type="service">
         <service class="Doctrine\Common\Annotations\AnnotationReader" public="false"/>
       </argument>
-      <argument>/root/software/gitonomy/app/cache/dev/annotations</argument>
+      <argument>/var/www/whencode/gitonomy/app/cache/dev/annotations</argument>
       <argument>true</argument>
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
@@ -4459,47 +4459,47 @@
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="templating.name_parser"/>
       <call method="addPath">
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>/root/software/gitonomy/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/root/software/gitonomy/vendor/juliendidier/buzz-bundle/Buzz/Bundle/BuzzBundle/Resources/views</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/juliendidier/buzz-bundle/Buzz/Bundle/BuzzBundle/Resources/views</argument>
         <argument>Buzz</argument>
       </call>
       <call method="addPath">
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/views</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/WebsiteBundle/Resources/views</argument>
         <argument>GitonomyWebsite</argument>
       </call>
       <call method="addPath">
-        <argument>/root/software/gitonomy/vendor/gitonomy/git-bundle/Gitonomy/Bundle/GitBundle/Resources/views</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/gitonomy/git-bundle/Gitonomy/Bundle/GitBundle/Resources/views</argument>
         <argument>GitonomyGit</argument>
       </call>
       <call method="addPath">
-        <argument>/root/software/gitonomy/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views</argument>
         <argument>SensioDistribution</argument>
       </call>
       <call method="addPath">
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>/root/software/gitonomy/src/Gitonomy/Bundle/DistributionBundle/Resources/views</argument>
+        <argument>/var/www/whencode/gitonomy/src/Gitonomy/Bundle/DistributionBundle/Resources/views</argument>
         <argument>GitonomyDistribution</argument>
       </call>
       <call method="addPath">
-        <argument>/root/software/gitonomy/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
+        <argument>/var/www/whencode/gitonomy/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="logger" class="Symfony\Bridge\Monolog\Logger">
