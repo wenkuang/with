@@ -9,7 +9,7 @@
  * This source file is subject to the GPL license that is bundled
  * with this source code in the file LICENSE.
  */
-require_once '/var/www/whencode/gitonomy/app/bootstrap.php.cache';
+require_once '/var/www/gitonomy/app/bootstrap.php.cache';
 
 use Symfony\Component\HttpFoundation\Request;
 use Gitonomy\Component\Requirements\WebGitonomyRequirements;
