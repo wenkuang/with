@@ -9,14 +9,12 @@
  * This source file is subject to the GPL license that is bundled
  * with this source code in the file LICENSE.
  */
-echo 1;
 require_once __DIR__.'/../app/bootstrap.php.cache';
 
 use Symfony\Component\HttpFoundation\Request;
 use Gitonomy\Component\Requirements\WebGitonomyRequirements;
 
 $requirements = new WebGitonomyRequirements();
-
 ?>
 <!doctype html>
 <html>
