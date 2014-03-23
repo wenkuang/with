@@ -26,16 +26,14 @@
 </div>
 <script src="http://doc.booksaid.cn/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
-function ctl($scope){
-console.log($scope);
-
-}
      var editor = ace.edit("editor");
     editor.setTheme("ace/theme/twilight");
     editor.getSession().setMode("ace/mode/sh");
     editor.resize();
    
-
+function ctl($scope){
+        $scope.code = editor.getValue();
+}
 </script>
         </div>
 
