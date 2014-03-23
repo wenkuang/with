@@ -14,7 +14,7 @@
 		
 }
 </style>
-<textarea ng-model="code" class="code">
+<textarea id="editor" ng-model="code" class="code">
 
 
 
@@ -29,6 +29,11 @@ function ctl($scope){
 console.log($scope);
 
 }
+     var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/visual_studio");
+    editor.getSession().setMode("ace/mode/sh");
+    editor.resize();
+   
 
 </script>
         </div>
