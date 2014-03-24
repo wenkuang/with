@@ -1,41 +1,37 @@
 <html ng-app>
-<head>
-<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
-</head>
-<body>
-<div ng-controller="ctl">
+    <head>
+        <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+    </head>
+    <body>
+        <div ng-controller="ctl">
 
-<style>
-.code{
-	width:50%;
-	height:500px;
-	border:1px solid #ccc;
-	float:left;
-		
-}
-</style>
-<div id="editor" ng-model="code" class="code">
+            <style>
+                .code{
+                    width:50%;
+                    height:500px;
+                    border:1px solid #ccc;
+                    float:left;
 
-
-
-</div>
-<div  style="height:500px;width:45%;float:left;">
-{{code}}
-</div>
-
-</div>
-<script src="http://doc.booksaid.cn/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-     var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/twilight");
-    editor.getSession().setMode("ace/mode/sh");
-    editor.resize();
-   
-function ctl($scope){
-        $scope.code = editor.getValue();
-}
-</script>
+                }
+            </style>
+            <div id="editor" ng-model="code" class="code">
+            </div>
+            <div  style="height:500px;width:45%;float:left;">
+                {{code}}
+            </div>
         </div>
+    </div>
+        <script src="http://doc.booksaid.cn/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+            var editor = ace.edit("editor");
+            editor.setTheme("ace/theme/twilight");
+            editor.getSession().setMode("ace/mode/sh");
+            editor.resize();
 
+            function ctl($scope) {
+                console.log($scope.code);
+                $scope.code = editor.getValue();
+            }
+        </script>
 </body>
 </html>
