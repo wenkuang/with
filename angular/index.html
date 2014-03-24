@@ -3,24 +3,21 @@
         <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
     </head>
     <body>
+        <style>
+            .code{
+                width:50%;
+                height:500px;
+                border:1px solid #ccc;
+                float:left;
+            }
+        </style>
         <div ng-controller="ctl">
-
-            <style>
-                .code{
-                    width:50%;
-                    height:500px;
-                    border:1px solid #ccc;
-                    float:left;
-
-                }
-            </style>
             <div id="editor" ng-model="code" class="code">
             </div>
             <div  style="height:500px;width:45%;float:left;">
                 {{code}}
             </div>
         </div>
-    </div>
         <script src="http://doc.booksaid.cn/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
         <script>
             var editor = ace.edit("editor");
@@ -32,5 +29,5 @@
                 //$scope.code = editor.getValue();
             }
         </script>
-</body>
+    </body>
 </html>
