@@ -10,12 +10,16 @@
                 border:1px solid #ccc;
                 float:left;
             }
+            .ace_editor  {
+  height : 300px;
+}
+
         </style>
         <div ng-controller="AceCtrl">
-            <textarea id="editor" ng-model="code" class="code">
-            </textarea>
+              <div ui-ace="aceOption" ng-model="aceModel"></div>
+
             <pre  style="height:500px;width:45%;float:left;">
-                {{code}}
+                {{aceModel}}
             </pre>
         </div>
         <button ng-click="get_code()">Run</button>
