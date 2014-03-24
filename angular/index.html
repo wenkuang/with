@@ -11,7 +11,7 @@
                 float:left;
             }
         </style>
-        <div ng-controller="ctl">
+        <div ng-controller="AceCtrl">
             <textarea id="editor" ng-model="code" class="code">
             </textarea>
             <pre  style="height:500px;width:45%;float:left;">
@@ -19,7 +19,9 @@
             </pre>
         </div>
         <button ng-click="get_code()">Run</button>
-        <script src="http://doc.booksaid.cn/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+      <script src="https://rawgithub.com/ajaxorg/ace-builds/v1.1.1/src-min-noconflict/ace.js"></script>
+      <script src="https://rawgithub.com/angular-ui/ui-ace/bower/ui-ace.min.js"></script>
         <script>
 //            var editor = ace.edit("editor");
 //            editor.setTheme("ace/theme/twilight");
@@ -30,15 +32,41 @@
 //                //$scope.code = editor.getValue();
 //            }
             
-var myApp = angular.module('xctl', []);
- 
-myApp.controller('ctl', ['$scope', function($scope){
-    $scope.get_code = function() {
-        $scope.code = "2222222222222222222222222"
-        console.log(11132);
-    };
+//var myApp = angular.module('xctl', []);
+// 
+//myApp.controller('ctl', ['$scope', function($scope){
+//    $scope.get_code = function() {
+//        $scope.code = "2222222222222222222222222"
+//        console.log(11132);
+//    };
+//
+//}]);
+var app = angular.module('xctl', ['ui.ace']);
+function AceCtrl($scope) {
+// The modes
+  $scope.modes = ['Scheme', 'XML', 'Javascript'];
+  $scope.mode = $scope.modes[2];
+  // The ui-ace option
+  $scope.aceOption = {
+    mode: $scope.mode.toLowerCase(),
+    onLoad: function (_ace) {
+      // HACK to have the ace instance in the scope...
+      $scope.modeChanged = function () {
+        _ace.getSession().setMode("ace/mode/" + $scope.mode.toLowerCase());
+      };
 
-}]);
+    }
+  };
+
+  // Initial code content...
+  $scope.aceModel = ';; Scheme code in here.\n' +
+    '(define (double x)\n\t(* x x))\n\n\n' +
+    '<!-- XML code in here. -->\n' +
+    '<root>\n\t<foo>\n\t</foo>\n\t<bar/>\n</root>\n\n\n' +
+    '// Javascript code in here.\n' +
+    'function foo(msg) {\n\tvar r = Math.random();\n\treturn "" + r + " : " + msg;\n}';
+
+}
         </script>
     </body>
 </html>
