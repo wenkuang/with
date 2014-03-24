@@ -11,21 +11,21 @@
                 float:left;
             }
             .ace_editor  {
-  height : 300px;
-}
+                height : 300px;
+            }
 
         </style>
         <div ng-controller="AceCtrl">
-              <div ui-ace="aceOption" ng-model="aceModel"></div>
+            <div ui-ace="aceOption" ng-model="aceModel"></div>
 
             <pre  style="height:500px;width:45%;float:left;">
                 {{aceModel}}
             </pre>
         </div>
         <button ng-click="get_code()">Run</button>
-         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
-      <script src="https://rawgithub.com/ajaxorg/ace-builds/v1.1.1/src-min-noconflict/ace.js"></script>
-      <script src="https://rawgithub.com/angular-ui/ui-ace/bower/ui-ace.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+        <script src="https://rawgithub.com/ajaxorg/ace-builds/v1.1.1/src-min-noconflict/ace.js"></script>
+        <script src="https://rawgithub.com/angular-ui/ui-ace/bower/ui-ace.min.js"></script>
         <script>
 //            var editor = ace.edit("editor");
 //            editor.setTheme("ace/theme/twilight");
@@ -35,7 +35,7 @@
 //                console.log($scope.code);
 //                //$scope.code = editor.getValue();
 //            }
-            
+
 //var myApp = angular.module('xctl', []);
 // 
 //myApp.controller('ctl', ['$scope', function($scope){
@@ -45,32 +45,27 @@
 //    };
 //
 //}]);
-var app = angular.module('xctl', ['ui.ace']);
-function AceCtrl($scope) {
+            var app = angular.module('xctl', ['ui.ace']);
+            function AceCtrl($scope) {
 // The modes
-  $scope.modes = ['Scheme', 'XML', 'Javascript'];
-  $scope.mode = $scope.modes[2];
-  // The ui-ace option
-  $scope.aceOption = {
-    mode: $scope.mode.toLowerCase(),
-    onLoad: function (_ace) {
-      // HACK to have the ace instance in the scope...
-      $scope.modeChanged = function () {
-        _ace.getSession().setMode("ace/mode/" + $scope.mode.toLowerCase());
-      };
+                $scope.modes = ['Scheme', 'XML', 'Javascript'];
+                $scope.mode = $scope.modes[2];
+                // The ui-ace option
+                $scope.aceOption = {
+                    mode: $scope.mode.toLowerCase(),
+                    onLoad: function(_ace) {
+                        // HACK to have the ace instance in the scope...
+                        $scope.modeChanged = function() {
+                            _ace.getSession().setMode("ace/mode/" + $scope.mode.toLowerCase());
+                        };
 
-    }
-  };
+                    }
+                };
 
-  // Initial code content...
-  $scope.aceModel = ';; Scheme code in here.\n' +
-    '(define (double x)\n\t(* x x))\n\n\n' +
-    '<!-- XML code in here. -->\n' +
-    '<root>\n\t<foo>\n\t</foo>\n\t<bar/>\n</root>\n\n\n' +
-    '// Javascript code in here.\n' +
-    'function foo(msg) {\n\tvar r = Math.random();\n\treturn "" + r + " : " + msg;\n}';
+                // Initial code content...
+                $scope.aceModel = 'javascript';
 
-}
+            }
         </script>
     </body>
 </html>
