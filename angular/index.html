@@ -1,15 +1,8 @@
 <html>
     <head>
-        <script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
     </head>
     <body ng-app="xctl">
         <style>
-            .code{
-                width:50%;
-                height:500px;
-                border:1px solid #ccc;
-                float:left;
-            }
             .ace_editor  {
                 height : 300px;
             }
@@ -27,27 +20,9 @@
         <script src="https://rawgithub.com/ajaxorg/ace-builds/v1.1.1/src-min-noconflict/ace.js"></script>
         <script src="https://rawgithub.com/angular-ui/ui-ace/bower/ui-ace.min.js"></script>
         <script>
-//            var editor = ace.edit("editor");
-//            editor.setTheme("ace/theme/twilight");
-//            editor.getSession().setMode("ace/mode/sh");
-//            editor.resize();
-//            function ctl($scope) {
-//                console.log($scope.code);
-//                //$scope.code = editor.getValue();
-//            }
 
-//var myApp = angular.module('xctl', []);
-// 
-//myApp.controller('ctl', ['$scope', function($scope){
-//    $scope.get_code = function() {
-//        $scope.code = "2222222222222222222222222"
-//        console.log(11132);
-//    };
-//
-//}]);
             var app = angular.module('xctl', ['ui.ace']);
             function AceCtrl($scope) {
-// The modes
                 $scope.modes = ['Scheme', 'XML', 'Javascript'];
                 $scope.mode = $scope.modes[2];
                 // The ui-ace option
