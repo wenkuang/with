@@ -12,8 +12,8 @@
             }
         </style>
         <div ng-controller="ctl">
-            <div id="editor" ng-model="code" class="code">
-            </div>
+            <textarea id="editor" ng-model="code" class="code">
+            </textarea>
             <div  style="height:500px;width:45%;float:left;">
                 {{code}}
             </div>
@@ -21,10 +21,10 @@
         <button ng-click="get_code()">Run</button>
         <script src="http://doc.booksaid.cn/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
         <script>
-            var editor = ace.edit("editor");
-            editor.setTheme("ace/theme/twilight");
-            editor.getSession().setMode("ace/mode/sh");
-            editor.resize();
+//            var editor = ace.edit("editor");
+//            editor.setTheme("ace/theme/twilight");
+//            editor.getSession().setMode("ace/mode/sh");
+//            editor.resize();
 //            function ctl($scope) {
 //                console.log($scope.code);
 //                //$scope.code = editor.getValue();
@@ -34,7 +34,7 @@ var myApp = angular.module('xctl', []);
  
 myApp.controller('ctl', ['$scope', function($scope){
     $scope.get_code = function() {
-        $scope.code = editor.getValue();
+        $scope.code = "2222222222222222222222222"
         console.log(11132);
     };
 
