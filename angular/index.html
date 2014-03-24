@@ -14,9 +14,9 @@
         <div ng-controller="ctl">
             <textarea id="editor" ng-model="code" class="code">
             </textarea>
-            <div  style="height:500px;width:45%;float:left;">
+            <pre  style="height:500px;width:45%;float:left;">
                 {{code}}
-            </div>
+            </pre>
         </div>
         <button ng-click="get_code()">Run</button>
         <script src="http://doc.booksaid.cn/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
