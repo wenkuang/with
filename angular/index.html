@@ -24,10 +24,19 @@
             editor.setTheme("ace/theme/twilight");
             editor.getSession().setMode("ace/mode/sh");
             editor.resize();
-            function ctl($scope) {
-                console.log($scope.code);
-                //$scope.code = editor.getValue();
-            }
+//            function ctl($scope) {
+//                console.log($scope.code);
+//                //$scope.code = editor.getValue();
+//            }
+            
+var myApp = angular.module('xctl', []);
+ 
+myApp.controller('ctl', ['$scope', function($scope){
+    $scope.get_code = function() {
+        $scope.code = editor.getValue();
+    };
+
+}]);
         </script>
     </body>
 </html>
