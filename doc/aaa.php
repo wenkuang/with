@@ -1,4 +1,2 @@
 <?php 
-$a = "sina_oufei_PlatForm20140326";
-
-echo md5($a);
+echo date('Y-m-d',time()-3600*24);
