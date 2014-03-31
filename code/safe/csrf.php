@@ -18,4 +18,4 @@ http://www.mybank.com/Transfer.php?toBankId=11&money=1000
 <img src=http://www.mybank.com/Transfer.php?toBankId=11&money=1000>
 当图片加载完后 用户的付费连接访问了2次，多付费1000
 
-这种情况需要用post请求避免
+这种情况需要用post请求避免，而且后台必须要用$_POST而不是$_REQUEST
