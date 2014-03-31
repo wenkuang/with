@@ -7,6 +7,8 @@ $referer ="http://www.baidu.com/dasd.php";$_SERVER['HTTP_REFERER'];
 
 $allowed_referer=  $_SERVER ['HTTP_HOST'];
 
+//调用方法: 
+$danger_site_referer = "http://www.baidu.com/134314/index.php";
 var_dump(csrf::check_referer($danger_site_referer));
 
 class csrf{
