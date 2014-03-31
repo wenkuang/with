@@ -2,12 +2,12 @@
 <?php
 
 
-$danger_site_referer = "http://www.baidu.com";
+$danger_site_referer = "http://sms.sina.com.cn//134314/index.php";
 $referer ="http://www.baidu.com/dasd.php";$_SERVER['HTTP_REFERER'];
 
 $allowed_referer=  $_SERVER ['HTTP_HOST'];
 
-var_dump(csrf::check_referer());
+var_dump(csrf::check_referer($danger_site_referer));
 
 class csrf{
     
