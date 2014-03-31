@@ -1,4 +1,4 @@
-<pre>
+
 <?php
 
 //调用方法: 
@@ -7,6 +7,7 @@ var_dump(csrf::check_referer($danger_site_referer));
 
 class csrf{
     
+    //检查请求来源是否合法
     public static function check_referer($referer="",$domain = ""){
         #请求来源网址
         $referer =empty($referer)?$_SERVER['HTTP_REFERER']:$referer;
