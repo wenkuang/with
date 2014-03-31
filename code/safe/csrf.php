@@ -43,3 +43,37 @@ http://www.mybank.com/Transfer.php?toBankId=11&money=1000
 </html>
 
 
+2. 防御
+
+在表单中添加后台脚本生成的随机数，然后再后台与cookie验证，这个随机数危险网站很难生成相同的，会杜绝掉99%
+　<?php
+　　　　//构造加密的Cookie信息
+　　　　$value = “DefenseSCRF”;
+　　　　setcookie(”cookie”, $value, time()+3600);
+　　?>
+　　
+　　　　<?php
+　　　　$hash = md5($_COOKIE['cookie']);
+　　?>
+　　<form method=”POST” action=”transfer.php”>
+　　　　<input type=”text” name=”toBankId”>
+　　　　<input type=”text” name=”money”>
+　　　　<input type=”hidden” name=”hash” value=”<?=$hash;?>”>
+　　　　<input type=”submit” name=”submit” value=”Submit”>
+　　</form>
+      <?php
+　　      if(isset($_POST['check'])) {
+     　　      $hash = md5($_COOKIE['cookie']);
+          　　 if($_POST['check'] == $hash) {
+               　　 doJob();
+　　           } else {
+　　　　　　　　//...
+          　　 }
+　　      } else {
+　　　　　　//...
+　　      }
+      ?>
+
+
+
+
