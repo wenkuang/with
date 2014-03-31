@@ -1,4 +1,4 @@
-
+http://www.ibm.com/developerworks/cn/web/1102_niugang_csrf/
 
 1. about: 
 CSRF（Cross-site request forgery），中文名称：跨站请求伪造，也被称为：one click attack/session riding，缩写为：CSRF/XSRF
@@ -73,6 +73,9 @@ http://www.mybank.com/Transfer.php?toBankId=11&money=1000
 　　　　　　//...
 　　      }
       ?>
+      
+      
+      
 
 
 
