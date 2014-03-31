@@ -11,9 +11,9 @@ var_dump(csrf::check_referer());
 
 class csrf{
     
-    public static function check_referer($domain = ""){
+    public static function check_referer($referer="",$domain = ""){
         #请求来源网址
-        $referer =$_SERVER['HTTP_REFERER'];
+        $referer =empty($referer)?$_SERVER['HTTP_REFERER']:$referer;
         #当前服务器域名，
         $allowed_domain = empty($domain)?$_SERVER ['HTTP_HOST']:$domain;
         if(!empty($referer)){
