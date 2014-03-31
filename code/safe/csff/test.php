@@ -8,7 +8,7 @@ $referer ="http://www.baidu.com/dasd.php";$_SERVER['HTTP_REFERER'];
 $allowed_referer=  $_SERVER ['HTTP_HOST'];
 
 echo $allowed_referer;
-$c = preg_match('@^(?:http://)?([^/]+)@i',
+preg_match('@^(?:http://)?([^/]+)@i',
     "$referer", $matches);
 
 print_r($matches);
